@@ -18,7 +18,7 @@ func _ready() -> void:
 	
 	color_rect.color = Color(GRAY, 0)
 	
-	var song_data = SongDB.get_song_data(SongDB.Song.TEST_SONG)
+	var song_data = SongDB.get_song_data(SongDB.Song.IDADE_DAS_PEDRAS)
 	Conductor.load_song(song_data)
 	Conductor.start_song()
 

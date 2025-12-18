@@ -73,7 +73,7 @@ func take_damage(amount: int, source: GridEntity = null) -> void:
 		pass
 		# TODO: Adicionar feedback visual aqui (flash branco, shake, etc)
 
-
+# TODO: remove queue_free from here, maybe make this an abstract and let the entity itself chose how to die (player would be very specific, while the enemies would die about the same way)
 func _die() -> void:
 	died.emit(self)
 	grid.unregister_entity(self, grid_pos)

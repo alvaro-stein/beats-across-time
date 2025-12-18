@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SongData" load_steps=3 format=3 uid="uid://wexxdeoax8r8"]
+
+[ext_resource type="AudioStream" uid="uid://b12q4f0jte5s4" path="res://audio/songs/Musica_Idade_da_pedra.wav" id="1_38431"]
+[ext_resource type="Script" uid="uid://cw6c0jneo1r5a" path="res://audio/songs/song_data.gd" id="2_pkbmj"]
+
+[resource]
+script = ExtResource("2_pkbmj")
+audio_stream = ExtResource("1_38431")
+name = "Idade das Pedras"
+metadata/_custom_type_script = "uid://cw6c0jneo1r5a"

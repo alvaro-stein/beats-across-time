@@ -1,7 +1,7 @@
 extends Resource
 class_name SongData
 
-## O arquivo de áudio (ex: .ogg ou .mp3)
+## O arquivo de áudio (ex: .ogg ou .mp3 ou .wav)
 @export var audio_stream: AudioStream
 @export var name: String = "Untitled"
 
