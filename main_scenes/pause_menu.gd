@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var master_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/MasterRow/MasterSlider
 @onready var music_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/MusicRow/MusicSlider
 @onready var sfx_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/SfxRow/SfxSlider
+@onready var hit_window_option: OptionButton = $CenterContainer/OptionsPanel/HitWindowRow/HitWindowOption
 
 func _ready() -> void:
 	options_panel.visible = false
@@ -12,6 +13,20 @@ func _ready() -> void:
 	_master_init()
 	_music_init()
 	_sfx_init()
+	# Populate hit window options
+	hit_window_option.clear()
+	hit_window_option.add_item("Estrito")
+	hit_window_option.add_item("Normal")
+	hit_window_option.add_item("Fácil")
+	# Select current based on Settings
+	var early = Settings.hit_window_early_sec
+	var late = Settings.hit_window_late_sec
+	var idx = 1 # Normal default
+	if early <= 0.08 and late <= 0.06:
+		idx = 0
+	elif early >= 0.19 and late >= 0.14:
+		idx = 2
+	hit_window_option.select(idx)
 
 func show_menu() -> void:
 	visible = true
@@ -76,3 +91,12 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 	var idx = _bus_index("SFX")
 	if idx >= 0:
 		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
+
+func _on_hit_window_option_selected(index: int) -> void:
+	match index:
+		0:
+			Settings.set_hit_window_mode("estrito")
+		1:
+			Settings.set_hit_window_mode("normal")
+		2:
+			Settings.set_hit_window_mode("facil")
