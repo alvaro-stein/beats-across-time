@@ -7,4 +7,5 @@
 script = ExtResource("2_pkbmj")
 audio_stream = ExtResource("1_38431")
 name = "Idade das Pedras"
+length_in_beats = 65
 metadata/_custom_type_script = "uid://cw6c0jneo1r5a"
