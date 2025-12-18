@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://vuxv68c2mc5d"]
+
+[ext_resource type="Script" uid="uid://260wkpaqw321" path="res://entities/enemies/traps/trap.gd" id="1_5hkkn"]
+[ext_resource type="Texture2D" uid="uid://be0wbtbc7sdu7" path="res://assets/placeholder/player_art.png" id="2_u865b"]
+
+[node name="Spikes" type="Node2D" node_paths=PackedStringArray("danger_indicator", "sprite")]
+script = ExtResource("1_5hkkn")
+danger_indicator = NodePath("DangerIndicator")
+sprite = NodePath("Sprite2D")
+
+[node name="DangerIndicator" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0, 1)
+scale = Vector2(3, 3)
+texture = ExtResource("2_u865b")
