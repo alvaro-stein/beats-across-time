@@ -39,7 +39,7 @@ folder_colors={
 "res://audio/": "purple",
 "res://autoloads/": "pink",
 "res://entities/": "orange",
-"res://entities/boss/": "red",
+"res://entities/enemies/": "red",
 "res://entities/player/": "yellow",
 "res://main_scenes/": "teal",
 "res://world/": "green"
@@ -49,6 +49,7 @@ folder_colors={
 
 player=""
 enemy=""
+trap=""
 
 [gui]
 
@@ -88,5 +89,6 @@ right={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

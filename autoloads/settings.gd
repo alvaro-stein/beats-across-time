@@ -1,5 +1,5 @@
 extends Node
 
-const HIT_WINDOW_EARLY_SEC: float = 0.080
-const HIT_WINDOW_LATE_SEC: float = 0.040 ## Equals TURN_DELAY_SEC
+const HIT_WINDOW_EARLY_SEC: float = 0.120
+const HIT_WINDOW_LATE_SEC: float = 0.080 ## Equals TURN_DELAY_SEC
 const TURN_DELAY_SEC = HIT_WINDOW_LATE_SEC ## Equals HIT_WINDOW_LATE_SEC
