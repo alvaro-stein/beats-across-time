@@ -26,13 +26,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	song_time_label.text = "song_time = %.3f" % Conductor.song_time
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("esc"):
-		if pause_menu.visible:
-			pause_menu._on_iniciar_button_pressed()
-		else:
-			pause_menu.show_menu()
-
 func _on_beat_hit(beat: Conductor.BeatInfo, measure_pos) -> void:
 	label.text = "turn time = %.3f\nlast_beat.pos = %d\nmeasure_pos = %d" % [ Conductor.song_time, beat.pos, measure_pos ]
 	await get_tree().create_timer(0.1).timeout

@@ -25,6 +25,15 @@ func _ready() -> void:
 	_resolution_init()
 	_window_mode_init()
 
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		if visible:
+			_on_iniciar_button_pressed()
+		else:
+			show_menu()
+
+
 func show_menu() -> void:
 	visible = true
 	Conductor.stream_paused = true
