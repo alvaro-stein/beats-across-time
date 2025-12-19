@@ -3,10 +3,6 @@ extends GridEntity
 
 @export var sprite: AnimatedSprite2D
 
-# TODO: move this constant to an apropriate place (like a tile map or GameManager)
-# tem algum bug em relação ao player ter scale 3x?
-const TILE_SIZE := Vector2(16, 16)*3
-
 #const ACTIONS: Dictionary[StringName, Dictionary] = {
 	#&"up": { "vector": Vector2i.UP, "collider": up },
 #}
@@ -19,6 +15,13 @@ const ACTIONS_VECTOR: Dictionary[StringName, Vector2i] = {
 
 var buffered_action: StringName
 
+
+func _enter_tree() -> void:
+	GameManager.player = self
+
+func _exit_tree() -> void:
+	if GameManager.player == self:
+		GameManager.player = null
 
 func _ready() -> void:
 	super()
@@ -36,14 +39,14 @@ func execute_turn(beat: Conductor.BeatInfo, measure: int) -> void:
 		
 		elif grid.is_tile_walkable(target_grid_pos) and not grid.is_tile_occupied(target_grid_pos):
 			self.move_to(target_grid_pos)
+		else:
+			_animate_bump(target_grid_pos)
 	buffered_action = &""
 
 
 func _on_action_judged(action: StringName, judgment: InputJudge.Judgment, error_ms: int) -> void:
 	if judgment == InputJudge.Judgment.HIT:
 		buffered_action = action
-	elif judgment == InputJudge.Judgment.MISS:
-		pass
 
 
 func _attack(target_entity: GridEntity) -> void:

@@ -3,6 +3,7 @@ extends TileMapLayer
 
 # Dict to track entities in the tile map (player, enemies, traps...)
 var _grid_entities: Dictionary[Vector2i, Array] = {} # key: coords, value: Array[GridEntity]
+var pathfinder: AStarGrid2D
 
 func _enter_tree() -> void:
 	GameManager.active_grid = self
@@ -10,6 +11,30 @@ func _enter_tree() -> void:
 func _exit_tree() -> void:
 	if GameManager.active_grid == self:
 		GameManager.active_grid = null
+
+func _ready() -> void:
+	# Initialize the pathfinder's A* object
+	pathfinder = AStarGrid2D.new()
+	
+	# Pega a região usada no TileMap para definir os limites do A*
+	# var rect := get_used_rect()
+	var rect := Rect2i(0, 0, 30, 17)
+	pathfinder.region = rect
+	
+	# Configurações padrão
+	#pathfinder.cell_size = tile_set.tile_size # Pega o tamanho do tile do recurso TileSet
+	pathfinder.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	pathfinder.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
+	pathfinder.default_estimate_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
+	pathfinder.update()
+	
+	# Preenche os obstáculos ESTÁTICOS (Paredes)
+	for x in range(rect.position.x, rect.end.x):
+		for y in range(rect.position.y, rect.end.y):
+			var coords = Vector2i(x, y)
+			# Se NÃO for andável, marcamos como sólido no A*
+			if not is_tile_walkable(coords):
+				pathfinder.set_point_solid(coords, true)
 
 
 ## Registers an entity at a specific coordinate
