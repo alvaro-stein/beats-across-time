@@ -1,6 +1,8 @@
 class_name GridSystem
 extends TileMapLayer
 
+@export var obstacles_tile_map: TileMapLayer
+
 # Dict to track entities in the tile map (player, enemies, traps...)
 var _grid_entities: Dictionary[Vector2i, Array] = {} # key: coords, value: Array[GridEntity]
 var pathfinder: AStarGrid2D
@@ -79,8 +81,14 @@ func is_tile_walkable(coords: Vector2i) -> bool:
 	var tile_data = get_cell_tile_data(coords)
 	if not tile_data:
 		return false # Tile is empty
+	
+	if obstacles_tile_map:
+		var obs_data = obstacles_tile_map.get_cell_tile_data(coords)
+		if obs_data and not obs_data.get_custom_data("is_walkable"):
+			return false
+	
 	# Checks a custom data layer from the TileSet
-	return tile_data.get_custom_data("is_walkable")
+	return true
 
 
 ## Returns the first hittable entity found at the given tile coordinates
