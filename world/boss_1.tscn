@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://dkfna8rdw6dsc"]
 
 [ext_resource type="PackedScene" uid="uid://1bgx3vbeic4o" path="res://world/base_level.tscn" id="1_s5xka"]
-[ext_resource type="TileSet" uid="uid://vlrmmuxamvdb" path="res://world/fase1.tres" id="2_253gx"]
+[ext_resource type="TileSet" uid="uid://vlrmmuxamvdb" path="res://assets/tilesets/pokemon-tileset.tres" id="2_253gx"]
 
 [node name="Boss1" instance=ExtResource("1_s5xka")]
 

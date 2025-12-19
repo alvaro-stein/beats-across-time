@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c68h5rmbj0g3s"
-path="res://.godot/imported/pokemon-like-tileset.png-0f9b9d3430431bf8f9515f3478ea73d3.ctex"
+path="res://.godot/imported/pokemon-tileset.png-6a19d280dc77b6b5d831383fddaef26d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/pokemon-like-tileset.png"
-dest_files=["res://.godot/imported/pokemon-like-tileset.png-0f9b9d3430431bf8f9515f3478ea73d3.ctex"]
+source_file="res://assets/tilesets/pokemon-tileset.png"
+dest_files=["res://.godot/imported/pokemon-tileset.png-6a19d280dc77b6b5d831383fddaef26d.ctex"]
 
 [params]
 
