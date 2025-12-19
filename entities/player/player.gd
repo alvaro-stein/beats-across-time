@@ -47,6 +47,14 @@ func execute_turn(beat: Conductor.BeatInfo, measure: int) -> void:
 func _on_action_judged(action: StringName, judgment: InputJudge.Judgment, error_ms: int) -> void:
 	if judgment == InputJudge.Judgment.HIT:
 		buffered_action = action
+		_update_facing_direction(action)
+	elif judgment == InputJudge.Judgment.MISS:
+		pass
+
+func _update_facing_direction(action: StringName) -> void:
+	if action in ACTIONS_VECTOR:
+		sprite.play(action)
+
 
 
 func _attack(target_entity: GridEntity) -> void:
