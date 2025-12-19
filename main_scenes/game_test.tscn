@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://cebb54jsd0lk8"]
+[gd_scene load_steps=7 format=4 uid="uid://cebb54jsd0lk8"]
 
 [ext_resource type="PackedScene" uid="uid://1bgx3vbeic4o" path="res://world/base_level.tscn" id="1_u5sbh"]
 [ext_resource type="Script" uid="uid://dyr536kk8v7bv" path="res://main_scenes/game_test.gd" id="2_kprlq"]
 [ext_resource type="TileSet" uid="uid://b0c73hstx4bjg" path="res://main_scenes/tile_set_placeholder.tres" id="3_b08rk"]
 [ext_resource type="PackedScene" uid="uid://vuxv68c2mc5d" path="res://entities/enemies/traps/spikes.tscn" id="4_mds6u"]
-[ext_resource type="PackedScene" uid="uid://cfsnqv6skuiv2" path="res://main_scenes/pause_menu.tscn" id="5_pause"]
 [ext_resource type="PackedScene" uid="uid://dr8ww4opp6dft" path="res://entities/enemies/minions/simple_enemy.tscn" id="5_igfuq"]
+[ext_resource type="PackedScene" uid="uid://cfsnqv6skuiv2" path="res://main_scenes/pause_menu.tscn" id="5_pause"]
 
 [node name="GameTest" instance=ExtResource("1_u5sbh")]
 script = ExtResource("2_kprlq")
@@ -99,6 +99,7 @@ text = "PlayerHP = 5/5"
 [node name="Spikes" parent="." index="4" instance=ExtResource("4_mds6u")]
 position = Vector2(982, 568)
 
-[node name="PauseMenu" parent="." index="5" instance=ExtResource("5_pause")]
 [node name="SimpleEnemy" parent="." index="5" instance=ExtResource("5_igfuq")]
 position = Vector2(632, 652)
+
+[node name="PauseMenu" parent="." index="6" instance=ExtResource("5_pause")]
