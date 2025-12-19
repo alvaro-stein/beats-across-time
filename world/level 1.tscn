@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://brk3mycpdxa6w"]
+[gd_scene load_steps=6 format=4 uid="uid://brk3mycpdxa6w"]
 
 [ext_resource type="PackedScene" uid="uid://1bgx3vbeic4o" path="res://world/base_level.tscn" id="1_r85m7"]
 [ext_resource type="Script" uid="uid://dc51eyjq0verd" path="res://world/level_1.gd" id="2_f6bt7"]
 [ext_resource type="TileSet" uid="uid://vlrmmuxamvdb" path="res://assets/tilesets/pokemon-tileset.tres" id="2_vaabm"]
+[ext_resource type="PackedScene" uid="uid://dr8ww4opp6dft" path="res://entities/enemies/minions/simple_enemy.tscn" id="4_y7hs4"]
+[ext_resource type="PackedScene" uid="uid://cfsnqv6skuiv2" path="res://main_scenes/pause_menu.tscn" id="5_1w0om"]
 
 [node name="Level1" instance=ExtResource("1_r85m7")]
 script = ExtResource("2_f6bt7")
@@ -17,3 +19,14 @@ position = Vector2(864, 545)
 [node name="TileMapLayer" type="TileMapLayer" parent="." index="2"]
 tile_map_data = PackedByteArray("AAAHAAQAAAAAAAIAAAAJAAkAAAAAAAIAAAAMAAMAAAAAAAIAAAAJAAgAAAAAAAEAAAAHAAMAAAAAAAEAAAAGAAwAAAACAAIAAAAPAAUAAAACAAIAAAAQAAgAAAACAAIAAAARAA4AAAACAAIAAAAUAAMAAAACAAIAAAAaAAgAAAACAAIAAAARAA0AAAACAAEAAAAGAAsAAAACAAEAAAAQAAcAAAACAAEAAAAPAAQAAAACAAEAAAAUAAIAAAACAAEAAAAaAAcAAAACAAEAAAAFAAYAAAAAAAMAAAAMAA0AAAAAAAMAAAADAAsAAAABAAMAAAAEAA4AAAAAAAMAAAAHAA4AAAABAAMAAAANAAcAAAABAAMAAAARAAIAAAAAAAMAAAAMAAIAAAAAAAEAAAAbAAMAAAAAAAMAAAAXAAQAAAAAAAMAAAALAAkAAAAEAAMAAAAUAAoAAAAEAAEAAAAXAAcAAAAEAAIAAAAKAAYAAAAEAAIAAAAZAAEAAAAAAAIAAAAZAAAAAAAAAAEAAAAPAAoAAAAAAAEAAAAPAAsAAAAAAAIAAAACAAgAAAACAAIAAAACAAcAAAACAAEAAAAUAAcAAAAAAAMAAAAWAA4AAAAAABwAAAAWAA8AAAAAAB0AAAAWABAAAAAAAB4AAAAXAA4AAAABABwAAAAXAA8AAAABAB0AAAAXABAAAAABAB4AAAAYAA4AAAACABwAAAAYAA8AAAACAB0AAAAYABAAAAACAB4AAAAZAAwAAAAAAB0AAAAdABAAAAAAAB0AAAA=")
 tile_set = ExtResource("2_vaabm")
+
+[node name="SimpleEnemy" parent="." index="3" instance=ExtResource("4_y7hs4")]
+position = Vector2(1207, 174)
+
+[node name="SimpleEnemy2" parent="." index="4" instance=ExtResource("4_y7hs4")]
+position = Vector2(466, 429)
+
+[node name="SimpleEnemy3" parent="." index="5" instance=ExtResource("4_y7hs4")]
+position = Vector2(1770, 538)
+
+[node name="PauseMenu" parent="." index="6" instance=ExtResource("5_1w0om")]
