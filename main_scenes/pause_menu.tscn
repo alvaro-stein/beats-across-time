@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfsnqv6skuiv2"]
 
-[ext_resource type="Script" uid="uid://bgewv8ojpx4sj" path="res://main_scenes/pause_menu.gd" id="1_script"]
+[ext_resource type="Script" path="res://main_scenes/pause_menu.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://dworrnp8lpw41" path="res://assets/fonts/NewRocker-Regular.ttf" id="2_font"]
 
 [node name="PauseMenu" type="CanvasLayer"]
