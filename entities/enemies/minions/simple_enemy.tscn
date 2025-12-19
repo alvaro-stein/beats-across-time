@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dr8ww4opp6dft"]
 
 [ext_resource type="Script" uid="uid://bnx4f25vjjqjw" path="res://entities/enemies/minions/simple_enemy.gd" id="1_tw775"]
-[ext_resource type="Texture2D" uid="uid://be0wbtbc7sdu7" path="res://assets/placeholder/player_art.png" id="2_fo4in"]
+[ext_resource type="Texture2D" uid="uid://driegft0ci7a4" path="res://entities/enemies/minions/javali-export.png" id="2_fo4in"]
 
 [node name="SimpleEnemy" type="Node2D" node_paths=PackedStringArray("danger_indicator")]
 z_index = 2
@@ -24,9 +24,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0, 0, 0.49803922)
+color = Color(1, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-scale = Vector2(3, 3)
 texture = ExtResource("2_fo4in")

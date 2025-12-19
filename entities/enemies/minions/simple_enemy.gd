@@ -3,6 +3,8 @@ extends GridEntity
 
 enum State { CHASE, CHARGE_ATTACK }
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 var state: State = State.CHASE
 var _attack_target_pos: Vector2i
 var player: Player
@@ -53,7 +55,7 @@ func _start_attack_charge(target_pos: Vector2i) -> void:
 		danger_indicator.visible = true
 		var tween = create_tween()
 		danger_indicator.modulate.a = 0.0
-		tween.tween_property(danger_indicator, "modulate:a", 1, 0.15)
+		tween.tween_property(danger_indicator, "modulate:a", 0.7, 0.15)
 
 
 func _handle_attack_execution() -> void:
@@ -73,6 +75,14 @@ func _move_towards_target(target_pos: Vector2i) -> void:
 	# path[0] é a posição atual, path[1] é o próximo passo
 	if path.size() > 1:
 		var next_step: Vector2i = path[1]
+		
+		var direction_x = next_step.x - grid_pos.x
+		
+		if direction_x != 0:
+			# Se direction_x < 0 (indo pra esquerda), flip_h vira TRUE.
+			# Se direction_x > 0 (indo pra direita), flip_h vira FALSE.
+			sprite_2d.flip_h = (direction_x > 0)
+		
 		# The tile is empty?
 		if not grid.is_tile_occupied(next_step):
 			move_to(next_step)
