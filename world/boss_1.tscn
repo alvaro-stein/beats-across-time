@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dkfna8rdw6dsc"]
+[gd_scene load_steps=9 format=4 uid="uid://dkfna8rdw6dsc"]
 
 [ext_resource type="PackedScene" uid="uid://1bgx3vbeic4o" path="res://world/base_level.tscn" id="1_s5xka"]
 [ext_resource type="TileSet" uid="uid://vlrmmuxamvdb" path="res://assets/tilesets/pokemon-tileset.tres" id="2_253gx"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cfsnqv6skuiv2" path="res://main_scenes/pause_menu.tscn" id="3_8l2vm"]
 [ext_resource type="PackedScene" uid="uid://bb1k2n1tad3cr" path="res://assets/sprites/hearts.tscn" id="4_td5mb"]
 [ext_resource type="PackedScene" uid="uid://cwaylevibm333" path="res://main_scenes/game_over.tscn" id="5_ip462"]
+[ext_resource type="PackedScene" uid="uid://vuxv68c2mc5d" path="res://entities/enemies/traps/spikes.tscn" id="5_nqnoc"]
+[ext_resource type="PackedScene" uid="uid://dr8ww4opp6dft" path="res://entities/enemies/minions/simple_enemy.tscn" id="7_xyt0u"]
 
 [node name="Boss1" instance=ExtResource("1_s5xka")]
 script = ExtResource("2_pa6c6")
@@ -21,10 +23,28 @@ position = Vector2(479, 474)
 tile_map_data = PackedByteArray("AAACAA0AAAACAAIAAAAMAAUAAAACAAIAAAAUAA4AAAACAAIAAAAYAAgAAAACAAIAAAADAAQAAAACAAIAAAAJAA8AAAACAAIAAAAUAAUAAAAAAAIAAAAFAAoAAAAAAAIAAAAaAA8AAAAAAAIAAAAHAAMAAAAAAAIAAAAHAAIAAAAAAAEAAAAFAAkAAAAAAAEAAAAaAA4AAAAAAAEAAAAUAAQAAAAAAAEAAAAJAA4AAAACAAEAAAACAAwAAAACAAEAAAADAAMAAAACAAEAAAAMAAQAAAACAAEAAAAUAA0AAAACAAEAAAAYAAcAAAACAAEAAAAKAAsAAAAAAAMAAAAVAAkAAAAAAAMAAAAZAAQAAAAAAAMAAAAGAAYAAAAAAAMAAAAEAA8AAAAAAAMAAAAPAA8AAAAAAAMAAAAQAAIAAAAAAAMAAAA=")
 tile_set = ExtResource("2_253gx")
 
-[node name="Hearts" parent="." index="3" node_paths=PackedStringArray("player") instance=ExtResource("4_td5mb")]
+[node name="SimpleEnemy" parent="." index="3" instance=ExtResource("7_xyt0u")]
+position = Vector2(1030, 434)
+
+[node name="SimpleEnemy2" parent="." index="4" instance=ExtResource("7_xyt0u")]
+position = Vector2(454, 959)
+
+[node name="SimpleEnemy3" parent="." index="5" instance=ExtResource("7_xyt0u")]
+position = Vector2(1703, 793)
+
+[node name="Spikes" parent="." index="6" instance=ExtResource("5_nqnoc")]
+position = Vector2(728, 245)
+
+[node name="Spikes2" parent="." index="7" instance=ExtResource("5_nqnoc")]
+position = Vector2(539, 670)
+
+[node name="Spikes3" parent="." index="8" instance=ExtResource("5_nqnoc")]
+position = Vector2(933, 496)
+
+[node name="Hearts" parent="." index="9" node_paths=PackedStringArray("player") instance=ExtResource("4_td5mb")]
 position = Vector2(319, 57)
 player = NodePath("../Player")
 
-[node name="GameOver" parent="." index="4" instance=ExtResource("5_ip462")]
+[node name="GameOver" parent="." index="10" instance=ExtResource("5_ip462")]
 
-[node name="PauseMenu" parent="." index="5" instance=ExtResource("3_8l2vm")]
+[node name="PauseMenu" parent="." index="11" instance=ExtResource("3_8l2vm")]

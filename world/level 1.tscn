@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://brk3mycpdxa6w"]
+[gd_scene load_steps=9 format=4 uid="uid://brk3mycpdxa6w"]
 
 [ext_resource type="PackedScene" uid="uid://1bgx3vbeic4o" path="res://world/base_level.tscn" id="1_r85m7"]
 [ext_resource type="Script" uid="uid://dc51eyjq0verd" path="res://world/level_1.gd" id="2_f6bt7"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dr8ww4opp6dft" path="res://entities/enemies/minions/simple_enemy.tscn" id="4_y7hs4"]
 [ext_resource type="PackedScene" uid="uid://cfsnqv6skuiv2" path="res://main_scenes/pause_menu.tscn" id="5_1w0om"]
 [ext_resource type="PackedScene" uid="uid://bb1k2n1tad3cr" path="res://assets/sprites/hearts.tscn" id="5_jqyba"]
+[ext_resource type="PackedScene" uid="uid://vuxv68c2mc5d" path="res://entities/enemies/traps/spikes.tscn" id="5_t38yw"]
 [ext_resource type="PackedScene" uid="uid://cwaylevibm333" path="res://main_scenes/game_over.tscn" id="6_7scpx"]
 
 [node name="Level1" instance=ExtResource("1_r85m7")]
@@ -31,10 +32,19 @@ position = Vector2(466, 429)
 [node name="SimpleEnemy3" parent="." index="5" instance=ExtResource("4_y7hs4")]
 position = Vector2(1770, 538)
 
-[node name="Hearts" parent="." index="6" node_paths=PackedStringArray("player") instance=ExtResource("5_jqyba")]
+[node name="Spikes" parent="." index="6" instance=ExtResource("5_t38yw")]
+position = Vector2(1108, 656)
+
+[node name="Spikes2" parent="." index="7" instance=ExtResource("5_t38yw")]
+position = Vector2(788, 330)
+
+[node name="Spikes3" parent="." index="8" instance=ExtResource("5_t38yw")]
+position = Vector2(577, 810)
+
+[node name="Hearts" parent="." index="9" node_paths=PackedStringArray("player") instance=ExtResource("5_jqyba")]
 position = Vector2(317, 63)
 player = NodePath("../Player")
 
-[node name="GameOver" parent="." index="7" instance=ExtResource("6_7scpx")]
+[node name="GameOver" parent="." index="10" instance=ExtResource("6_7scpx")]
 
-[node name="PauseMenu" parent="." index="8" instance=ExtResource("5_1w0om")]
+[node name="PauseMenu" parent="." index="11" instance=ExtResource("5_1w0om")]
