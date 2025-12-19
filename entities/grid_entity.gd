@@ -3,6 +3,7 @@ class_name GridEntity
 extends Node2D
 
 signal died(entity: GridEntity)
+signal health_changed(amount: int, entity: GridEntity)
 
 enum Faction { PLAYER, TRAP, ENEMY, BOSS, NEUTRAL }
 
@@ -70,7 +71,7 @@ func take_damage(amount: int, source: GridEntity = null) -> void:
 		_die()
 		# TODO: Animação de morte (shader pra desintegrar e tals)
 	else:
-		pass
+		health_changed.emit(current_hp, self)
 		# TODO: Adicionar feedback visual aqui (flash branco, shake, etc)
 
 # TODO: remove queue_free from here, maybe make this an abstract and let the entity itself chose how to die (player would be very specific, while the enemies would die about the same way)

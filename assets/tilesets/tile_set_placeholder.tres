@@ -1,9 +1,9 @@
 [gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b0c73hstx4bjg"]
 
-[ext_resource type="Texture2D" uid="uid://bjs74oxuv27to" path="res://assets/placeholder/tiles_atlas-resized.png" id="2_roa83"]
+[ext_resource type="Texture2D" uid="uid://bjs74oxuv27to" path="res://assets/placeholder/tiles_atlas-resized.png" id="1_55eh4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bqpge"]
-texture = ExtResource("2_roa83")
+texture = ExtResource("1_55eh4")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 0:0/0/terrain_set = 0
