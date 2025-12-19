@@ -1,6 +1,7 @@
 extends Node
 
 var active_grid: GridSystem
+var player: Player
 
 
 func _ready() -> void:

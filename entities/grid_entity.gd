@@ -38,8 +38,8 @@ func _ready() -> void:
 func execute_turn(beat: Conductor.BeatInfo, measure: int) -> void
 
 
-## Moves the entity logically and visually
-## Does not check for entities occupying the target position
+## Moves the entity logically and visually.
+## Does not check for entities occupying the target position.
 func move_to(target_grid_pos: Vector2i) -> void:
 	if is_immobile: return
 	# 1. Atualiza o registro no GridSystem (libera o tile antigo, ocupa o novo)
