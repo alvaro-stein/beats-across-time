@@ -6,6 +6,7 @@ extends Node2D
 @onready var color_rect: ColorRect = $ColorRect
 @onready var player_hp: Label = $debug/HBoxContainer/VBoxContainer2/PlayerHP
 @onready var player: Player = $Player
+@onready var pause_menu: CanvasLayer = $PauseMenu
 
 const GRAY = Color.DIM_GRAY
 const GREEN = Color.DARK_GREEN
@@ -24,6 +25,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	song_time_label.text = "song_time = %.3f" % Conductor.song_time
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		if pause_menu.visible:
+			pause_menu._on_iniciar_button_pressed()
+		else:
+			pause_menu.show_menu()
 
 func _on_beat_hit(beat: Conductor.BeatInfo, measure_pos) -> void:
 	label.text = "turn time = %.3f\nlast_beat.pos = %d\nmeasure_pos = %d" % [ Conductor.song_time, beat.pos, measure_pos ]

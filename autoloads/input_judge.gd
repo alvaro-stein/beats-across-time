@@ -8,14 +8,18 @@ enum Judgment {
 	HIT
 }
 
-const HIT_WINDOW_EARLY_SEC: float = Settings.HIT_WINDOW_EARLY_SEC
-const HIT_WINDOW_LATE_SEC: float = Settings.HIT_WINDOW_LATE_SEC
-
+var _hit_window_early_sec: float
+var _hit_window_late_sec: float
 var _last_judged_beat_pos: int = -1
 
 
 func _ready() -> void:
 	Conductor.song_started.connect(_on_song_started)
+	_update_hit_window()
+
+func _update_hit_window() -> void:
+	_hit_window_early_sec = Settings.hit_window_early_sec
+	_hit_window_late_sec = Settings.hit_window_late_sec
 
 
 func _on_song_started() -> void:
@@ -59,7 +63,9 @@ func _input(event: InputEvent) -> void:
 	
 	var error_sec: float = input_time - target_beat.time
 	
-	if error_sec >= -HIT_WINDOW_EARLY_SEC and error_sec <= HIT_WINDOW_LATE_SEC:
+	# Read dynamic values each input for immediate application of settings
+	_update_hit_window()
+	if error_sec >= -_hit_window_early_sec and error_sec <= _hit_window_late_sec:
 		var error_ms = int(error_sec * 1000)
 		self.action_judged.emit(action_pressed, Judgment.HIT, error_ms)
 	else:
