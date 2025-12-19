@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://em4fvunlratk"
-path="res://.godot/imported/resized_roguelikeSheet_transparent.png-52cc76c5953e430991e8d50b5e22f197.ctex"
+uid="uid://c68h5rmbj0g3s"
+path="res://.godot/imported/pokemon-like-tileset.png-0f9b9d3430431bf8f9515f3478ea73d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Spritesheet/resized_roguelikeSheet_transparent.png"
-dest_files=["res://.godot/imported/resized_roguelikeSheet_transparent.png-52cc76c5953e430991e8d50b5e22f197.ctex"]
+source_file="res://assets/tilesets/pokemon-like-tileset.png"
+dest_files=["res://.godot/imported/pokemon-like-tileset.png-0f9b9d3430431bf8f9515f3478ea73d3.ctex"]
 
 [params]
 
