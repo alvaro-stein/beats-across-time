@@ -11,7 +11,7 @@ const MAIN_SCENES_UIDS: Dictionary = {
 	MainScene.MENU: "uid://lo2gkq41mho5",
 	MainScene.GAME_TEST: "uid://cebb54jsd0lk8",
 	MainScene.LEVEL1: "uid://brk3mycpdxa6w",
-	MainScene.LEVEL2: "uid://dkfna8rdw6dsc"
+	MainScene.LEVEL2: "uid://dkfna8rdw6dsc",
 }
 
 
