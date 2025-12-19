@@ -8,7 +8,7 @@ class BeatInfo:
 	var pos: int = 0 ## The position of the beat ex: 0, 1, 2, 3...
 	var time: float = 0.0 ## In seconds
 
-const TURN_DELAY_SEC: float = Settings.TURN_DELAY_SEC
+var turn_delay_sec: float = Settings.hit_window_late_sec
 
 var current_song: SongData = null
 var bpm: int = 0 ## Beats per minute
@@ -27,10 +27,10 @@ var _is_awaiting_turn_delay: bool = false
 var _delayed_emit_time: float
 
 func _ready() -> void:
-	# faz com que seja 
-	var music_bus = AudioServer.get_bus_index("Music")
+	# Adiciona o Conductor ao audio bus de música
+	var music_bus = AudioServer.get_bus_index(&"Music")
 	if music_bus >= 0:
-		bus = "Music"
+		self.bus = &"Music"
 
 
 func _process(_delta: float) -> void:
@@ -58,7 +58,7 @@ func _process(_delta: float) -> void:
 		_measure_pos = 1 if _measure_pos >= measure else _measure_pos + 1
 		
 		_is_awaiting_turn_delay = true
-		_delayed_emit_time = last_beat.time + TURN_DELAY_SEC
+		_delayed_emit_time = last_beat.time + turn_delay_sec
 	
 	if _is_awaiting_turn_delay and song_time >= _delayed_emit_time:
 		_is_awaiting_turn_delay = false

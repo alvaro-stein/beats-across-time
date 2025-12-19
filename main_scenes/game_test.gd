@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 	song_time_label.text = "song_time = %.3f" % Conductor.song_time
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("esc"):
 		if pause_menu.visible:
 			pause_menu._on_iniciar_button_pressed()
 		else:

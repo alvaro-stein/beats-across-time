@@ -36,23 +36,28 @@ func _on_back_button_pressed() -> void:
 	options_panel.visible = false
 	main_panel.visible = true
 
-func _bus_index(name: String) -> int:
-	return AudioServer.get_bus_index(name)
-
-func _db_to_slider(db: float) -> float:
-	return db_to_linear(db)
-
 func _slider_to_db(value: float) -> float:
 	var linear = max(value, 0.001)
 	return linear_to_db(linear)
 
 func _master_init() -> void:
-	var idx = _bus_index("Master")
+	var idx = AudioServer.get_bus_index(&"Master")
 	if idx >= 0:
-		master_slider.value = _db_to_slider(AudioServer.get_bus_volume_db(idx))
+		master_slider.value = db_to_linear(AudioServer.get_bus_volume_db(idx))
 
 func _on_master_slider_value_changed(value: float) -> void:
-	var idx = _bus_index("Master")
+	var idx = AudioServer.get_bus_index(&"Master")
+	if idx >= 0:
+		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
+
+func _on_music_slider_value_changed(value: float) -> void:
+	var idx = AudioServer.get_bus_index(&"Music")
+	if idx >= 0:
+		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
+
+
+func _on_sfx_slider_value_changed(value: float) -> void:
+	var idx = AudioServer.get_bus_index(&"Sfx")
 	if idx >= 0:
 		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
 
@@ -106,3 +111,7 @@ func _window_mode_init() -> void:
 	var fullscreen := mode == DisplayServer.WINDOW_MODE_FULLSCREEN or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 	fullscreen_toggle.button_pressed = fullscreen
 	resolution_option.disabled = fullscreen
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()

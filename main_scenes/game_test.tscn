@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dyr536kk8v7bv" path="res://main_scenes/game_test.gd" id="2_kprlq"]
 [ext_resource type="TileSet" uid="uid://b0c73hstx4bjg" path="res://main_scenes/tile_set_placeholder.tres" id="3_b08rk"]
 [ext_resource type="PackedScene" uid="uid://vuxv68c2mc5d" path="res://entities/enemies/traps/spikes.tscn" id="4_mds6u"]
-[ext_resource type="PackedScene" path="res://main_scenes/pause_menu.tscn" id="5_pause"]
+[ext_resource type="PackedScene" uid="uid://cfsnqv6skuiv2" path="res://main_scenes/pause_menu.tscn" id="5_pause"]
 
 [node name="GameTest" instance=ExtResource("1_u5sbh")]
 script = ExtResource("2_kprlq")
