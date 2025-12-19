@@ -80,6 +80,28 @@ text = "Janela de acerto"
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="ResolutionRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel"]
+layout_mode = 2
+
+[node name="ResolutionLabel" type="Label" parent="CenterContainer/OptionsPanel/ResolutionRow"]
+layout_mode = 2
+text = "Resolução"
+
+[node name="ResolutionOption" type="OptionButton" parent="CenterContainer/OptionsPanel/ResolutionRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FullscreenRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel"]
+layout_mode = 2
+
+[node name="FullscreenLabel" type="Label" parent="CenterContainer/OptionsPanel/FullscreenRow"]
+layout_mode = 2
+text = "Tela cheia"
+
+[node name="FullscreenToggle" type="CheckButton" parent="CenterContainer/OptionsPanel/FullscreenRow"]
+layout_mode = 2
+text = "Ativar"
+
 [node name="BackButton" type="Button" parent="CenterContainer/OptionsPanel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1xsbm")
@@ -90,4 +112,6 @@ text = "Voltar"
 [connection signal="pressed" from="CenterContainer/MainPanel/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/MasterRow/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="item_selected" from="CenterContainer/OptionsPanel/HitWindowRow/HitWindowOption" to="." method="_on_hit_window_option_selected"]
+[connection signal="item_selected" from="CenterContainer/OptionsPanel/ResolutionRow/ResolutionOption" to="." method="_on_resolution_option_selected"]
+[connection signal="toggled" from="CenterContainer/OptionsPanel/FullscreenRow/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
 [connection signal="pressed" from="CenterContainer/OptionsPanel/BackButton" to="." method="_on_back_button_pressed"]
