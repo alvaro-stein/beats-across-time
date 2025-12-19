@@ -29,11 +29,23 @@ theme_override_font_sizes/font_size = 100
 text = "Beats Across Time"
 horizontal_alignment = 1
 
-[node name="RhythmTestButton" type="Button" parent="CenterContainer/MainPanel"]
+[node name="GameTestButton" type="Button" parent="CenterContainer/MainPanel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1xsbm")
 theme_override_font_sizes/font_size = 50
-text = "Jogar"
+text = "Game Test"
+
+[node name="Level1Button" type="Button" parent="CenterContainer/MainPanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1xsbm")
+theme_override_font_sizes/font_size = 50
+text = "Level 1"
+
+[node name="Level2Button" type="Button" parent="CenterContainer/MainPanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1xsbm")
+theme_override_font_sizes/font_size = 50
+text = "Level 2"
 
 [node name="OptionsButton" type="Button" parent="CenterContainer/MainPanel"]
 layout_mode = 2
@@ -139,7 +151,9 @@ theme_override_fonts/font = ExtResource("2_1xsbm")
 theme_override_font_sizes/font_size = 50
 text = "Voltar"
 
-[connection signal="pressed" from="CenterContainer/MainPanel/RhythmTestButton" to="." method="_on_rhythm_test_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainPanel/GameTestButton" to="." method="_on_game_test_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainPanel/Level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainPanel/Level2Button" to="." method="_on_level_2_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/MasterRow/MasterSlider" to="." method="_on_master_slider_value_changed"]
