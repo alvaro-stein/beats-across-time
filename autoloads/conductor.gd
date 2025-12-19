@@ -26,6 +26,12 @@ var _measure_pos: int = 0
 var _is_awaiting_turn_delay: bool = false
 var _delayed_emit_time: float
 
+func _ready() -> void:
+	# faz com que seja 
+	var music_bus = AudioServer.get_bus_index("Music")
+	if music_bus >= 0:
+		bus = "Music"
+
 
 func _process(_delta: float) -> void:
 	if not playing:

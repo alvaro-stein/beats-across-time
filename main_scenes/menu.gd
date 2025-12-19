@@ -6,19 +6,15 @@ func _on_rhythm_test_button_pressed() -> void:
 @onready var main_panel := $CenterContainer/MainPanel
 @onready var options_panel := $CenterContainer/OptionsPanel
 @onready var master_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/MasterRow/MasterSlider
-@onready var music_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/MusicRow/MusicSlider
-@onready var sfx_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/SfxRow/SfxSlider
 @onready var hit_window_option: OptionButton = $CenterContainer/OptionsPanel/HitWindowRow/HitWindowOption
 
 func _ready() -> void:
 	options_panel.visible = false
 	# Initialize audio sliders from current bus volumes if available
 	_master_init()
-	_music_init()
-	_sfx_init()
 	# Populate hit window options
 	hit_window_option.clear()
-	hit_window_option.add_item("Estrito")
+	hit_window_option.add_item("Difícil")
 	hit_window_option.add_item("Normal")
 	hit_window_option.add_item("Fácil")
 	# Select current based on Settings
@@ -54,28 +50,8 @@ func _master_init() -> void:
 	if idx >= 0:
 		master_slider.value = _db_to_slider(AudioServer.get_bus_volume_db(idx))
 
-func _music_init() -> void:
-	var idx = _bus_index("Music")
-	if idx >= 0:
-		music_slider.value = _db_to_slider(AudioServer.get_bus_volume_db(idx))
-
-func _sfx_init() -> void:
-	var idx = _bus_index("SFX")
-	if idx >= 0:
-		sfx_slider.value = _db_to_slider(AudioServer.get_bus_volume_db(idx))
-
 func _on_master_slider_value_changed(value: float) -> void:
 	var idx = _bus_index("Master")
-	if idx >= 0:
-		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
-
-func _on_music_slider_value_changed(value: float) -> void:
-	var idx = _bus_index("Music")
-	if idx >= 0:
-		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
-
-func _on_sfx_slider_value_changed(value: float) -> void:
-	var idx = _bus_index("SFX")
 	if idx >= 0:
 		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
 
