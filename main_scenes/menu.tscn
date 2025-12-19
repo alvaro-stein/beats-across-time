@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://lo2gkq41mho5"]
+[gd_scene load_steps=4 format=3 uid="uid://lo2gkq41mho5"]
 
 [ext_resource type="Script" uid="uid://bxounjagt73t2" path="res://main_scenes/menu.gd" id="1_38vls"]
 [ext_resource type="FontFile" uid="uid://dworrnp8lpw41" path="res://assets/fonts/NewRocker-Regular.ttf" id="2_1xsbm"]
+[ext_resource type="Texture2D" uid="uid://cjw8xqm6h84ps" path="res://assets/placeholder/menu.png" id="2_f5540"]
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_38vls")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.2022222, 1.2022221)
+texture = ExtResource("2_f5540")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 8
@@ -30,6 +36,7 @@ text = "Beats Across Time"
 horizontal_alignment = 1
 
 [node name="GameTestButton" type="Button" parent="CenterContainer/MainPanel"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1xsbm")
 theme_override_font_sizes/font_size = 50
