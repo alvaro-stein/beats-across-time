@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://1bgx3vbeic4o"]
+[gd_scene load_steps=5 format=3 uid="uid://1bgx3vbeic4o"]
 
 [ext_resource type="Script" uid="uid://o1feknarsqbj" path="res://world/base_level.gd" id="1_6nqy2"]
 [ext_resource type="PackedScene" uid="uid://dg7r5hrjyh45f" path="res://world/grid_system.tscn" id="1_yn6g3"]
 [ext_resource type="PackedScene" uid="uid://bi3r8ujd1ruca" path="res://entities/player/player.tscn" id="2_b13jx"]
-[ext_resource type="PackedScene" uid="uid://bb1k2n1tad3cr" path="res://ui/hearts.tscn" id="4_82nv7"]
-[ext_resource type="PackedScene" uid="uid://cwaylevibm333" path="res://main_scenes/game_over.tscn" id="5_n02wu"]
-[ext_resource type="PackedScene" uid="uid://cfsnqv6skuiv2" path="res://main_scenes/pause_menu.tscn" id="6_yfbp8"]
+[ext_resource type="PackedScene" uid="uid://bo3r3e78431x1" path="res://ui/hud.tscn" id="4_qte3n"]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource("1_6nqy2")
@@ -16,8 +14,4 @@ script = ExtResource("1_6nqy2")
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Hearts" parent="." instance=ExtResource("4_82nv7")]
-
-[node name="GameOver" parent="." instance=ExtResource("5_n02wu")]
-
-[node name="PauseMenu" parent="." instance=ExtResource("6_yfbp8")]
+[node name="HUD" parent="." instance=ExtResource("4_qte3n")]

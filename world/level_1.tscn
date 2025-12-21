@@ -22,13 +22,13 @@ position = Vector2(864, 545)
 max_hp = 3
 
 [node name="SimpleEnemy" parent="Enemies" index="0" instance=ExtResource("4_phy56")]
-position = Vector2(1207, 174)
+position = Vector2(1201, 158)
 
 [node name="SimpleEnemy2" parent="Enemies" index="1" instance=ExtResource("4_phy56")]
-position = Vector2(466, 429)
+position = Vector2(419, 417)
 
 [node name="SimpleEnemy3" parent="Enemies" index="2" instance=ExtResource("4_phy56")]
-position = Vector2(1770, 538)
+position = Vector2(1768, 540)
 
 [node name="Spikes" parent="Enemies" index="3" instance=ExtResource("5_0fba2")]
 position = Vector2(1108, 656)

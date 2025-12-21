@@ -23,7 +23,6 @@ func _ready() -> void:
 			_layers.append(child)
 	
 	_tile_map_layer_reference = _layers[0]
-	print(_layers)
 	
 	_setup_pathfinder()
 
