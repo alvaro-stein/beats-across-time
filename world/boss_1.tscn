@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://vlrmmuxamvdb" path="res://assets/tilesets/pokemon-tileset.tres" id="2_253gx"]
 [ext_resource type="Script" uid="uid://dc51eyjq0verd" path="res://world/level_1.gd" id="2_pa6c6"]
 [ext_resource type="PackedScene" uid="uid://cfsnqv6skuiv2" path="res://main_scenes/pause_menu.tscn" id="3_8l2vm"]
-[ext_resource type="PackedScene" uid="uid://bb1k2n1tad3cr" path="res://assets/sprites/hearts.tscn" id="4_td5mb"]
+[ext_resource type="PackedScene" uid="uid://bb1k2n1tad3cr" path="res://ui/hearts.tscn" id="4_td5mb"]
 [ext_resource type="PackedScene" uid="uid://cwaylevibm333" path="res://main_scenes/game_over.tscn" id="5_ip462"]
 [ext_resource type="PackedScene" uid="uid://vuxv68c2mc5d" path="res://entities/enemies/traps/spikes.tscn" id="5_nqnoc"]
 [ext_resource type="PackedScene" uid="uid://dr8ww4opp6dft" path="res://entities/enemies/minions/simple_enemy.tscn" id="7_xyt0u"]
@@ -22,6 +22,7 @@ tile_set = ExtResource("2_253gx")
 
 [node name="Player" parent="." index="1"]
 position = Vector2(479, 474)
+max_hp = 4
 
 [node name="SimpleEnemy" parent="." index="2" instance=ExtResource("7_xyt0u")]
 position = Vector2(1030, 434)

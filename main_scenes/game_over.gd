@@ -5,7 +5,7 @@ var SM = SceneManager
 func _on_reiniciar_button_pressed() -> void:
 	if get_parent().name == "Level1":
 		SM.change_scene_to(SM.MainScene.LEVEL1)
-	else:
+	elif get_parent().name == "Boss1":
 		SM.change_scene_to(SM.MainScene.LEVEL2)
 
 
