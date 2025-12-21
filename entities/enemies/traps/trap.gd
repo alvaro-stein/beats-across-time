@@ -16,7 +16,7 @@ var _state: State = State.IDLE
 # Referência visual para indicar perigo 
 @export var danger_indicator: ColorRect
 # TODO: change to AnimatedSprite2D
-@export var sprite: Sprite2D
+@export var sprite: AnimatedSprite2D
 
 func _ready() -> void:
 	super() 
@@ -65,6 +65,6 @@ func _update_visuals() -> void:
 		
 	if sprite: # TODO: HARDCODED
 		if _state == State.ACTIVE:
-			sprite.scale = Vector2(3.5, 3.5)
-		else:
-			sprite.scale = Vector2(2.0, 2.0)
+			sprite.play("ativar")
+		elif _state == State.IDLE:
+			sprite.play_backwards("ativar")

@@ -75,6 +75,7 @@ func _animate_bump(target_grid_pos: Vector2i) -> void:
 	tween.tween_property(self, "global_position", start_world, 0.05).set_trans(Tween.TRANS_SINE)
 
 func _die() -> void:
+	health_changed.emit(current_hp, self)
 	died.emit(self)
 	grid.unregister_entity(self, grid_pos)
 	
