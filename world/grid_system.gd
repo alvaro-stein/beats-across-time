@@ -1,5 +1,5 @@
 class_name GridSystem
-extends TileMapLayer
+extends Node2D
 
 var _layers: Array[TileMapLayer] = []
 var _grid_entities: Dictionary[Vector2i, Array] = {} # key: coords, value: Array[GridEntity]
@@ -17,7 +17,11 @@ func _exit_tree() -> void:
 
 
 func _ready() -> void:
-	_layers.assign(get_children().filter(func(c): c is TileMapLayer))
+	#_layers.assign(get_children().filter(func(c): c is TileMapLayer))
+	for child in get_children():
+		if child is TileMapLayer:
+			_layers.append(child)
+	
 	_tile_map_layer_reference = _layers[0]
 	print(_layers)
 	
@@ -107,3 +111,6 @@ func local_to_map(local_position: Vector2) -> Vector2i:
 
 func map_to_local(map_position: Vector2i) -> Vector2:
 	return _tile_map_layer_reference.map_to_local(map_position)
+
+func get_cell_source_id(coords: Vector2i) -> int:
+	return _tile_map_layer_reference.get_cell_source_id(coords)
