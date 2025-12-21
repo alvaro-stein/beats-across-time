@@ -1,10 +1,11 @@
 extends HBoxContainer
 
-@export var player: Player
+var player: Player
 const HEART_FULL = preload("uid://b77rvy2fjucdu")
 const HEART_EMPTY = preload("uid://1ppv0o32xuh1")
 
 func _ready() -> void:
+	player = GameManager.player
 	player.health_changed.connect(_on_player_health_changed)
 	
 	for i in range(player.max_hp):
