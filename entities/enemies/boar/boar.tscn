@@ -213,7 +213,7 @@ animations = [{
 z_index = 2
 script = ExtResource("1_0njbn")
 faction = 2
-max_hp = 2
+max_hp = 3
 is_hittable = true
 occupies_tile = true
 
@@ -235,7 +235,8 @@ color = Color(1, 0, 0, 1)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_elsla")
-animation = &"hurt"
+animation = &"idle"
+frame_progress = 0.06022975
 
 [node name="DangerLine" type="Line2D" parent="."]
 width = 64.0

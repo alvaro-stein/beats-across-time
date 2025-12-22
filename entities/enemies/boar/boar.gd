@@ -12,6 +12,7 @@ const SHAKE_OFFSET := 10.0
 @export_group("Boar Settings")
 @export var charge_range: int = 4
 @export var stun_duration_beats: int = 2
+@export var vision_range: int = 4
 
 # Referências
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -62,7 +63,7 @@ func _handle_seek_state() -> void:
 	
 	# Verifica alinhamento nos eixos (X ou Y) e distância
 	var is_aligned = (diff.x == 0 or diff.y == 0)
-	var in_range = diff.length() <= charge_range
+	var in_range = diff.length() <= vision_range
 	
 	if is_aligned and in_range and _has_clear_line_of_sight(player.grid_pos):
 		_start_pre_charge(diff)
