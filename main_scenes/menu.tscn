@@ -57,6 +57,7 @@ theme_override_font_sizes/font_size = 50
 text = "Boss"
 
 [node name="TutorialButton" type="Button" parent="CenterContainer/MainPanel"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1xsbm")
 theme_override_font_sizes/font_size = 50
