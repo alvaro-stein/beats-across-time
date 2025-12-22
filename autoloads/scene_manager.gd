@@ -5,7 +5,8 @@ enum MainScene {
 	GAME_TEST,
 	LEVEL1,
 	LEVEL2,
-	BOSS
+	BOSS,
+	TUTORIAL
 }
 
 const MAIN_SCENES_UIDS: Dictionary = {
@@ -13,7 +14,8 @@ const MAIN_SCENES_UIDS: Dictionary = {
 	MainScene.GAME_TEST: "uid://cebb54jsd0lk8",
 	MainScene.LEVEL1: "uid://brk3mycpdxa6w",
 	MainScene.LEVEL2: "uid://dkfna8rdw6dsc",
-	MainScene.BOSS: "uid://dmi6cyua4k65w"
+	MainScene.BOSS: "uid://dmi6cyua4k65w",
+	MainScene.TUTORIAL: "uid://b5jra0qp4euh7"
 }
 
 

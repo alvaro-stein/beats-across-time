@@ -1,6 +1,8 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://vlrmmuxamvdb"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://vlrmmuxamvdb"]
 
 [ext_resource type="Texture2D" uid="uid://c68h5rmbj0g3s" path="res://assets/tilesets/pokemon-tileset.png" id="1_ucp7g"]
+[ext_resource type="Texture2D" uid="uid://c46lvo2ytkoc6" path="res://assets/tilesets/deck-transparent.png" id="2_vxb4p"]
+[ext_resource type="Texture2D" uid="uid://i62v8p2mqauv" path="res://assets/tilesets/tree-transparent.png" id="3_en5vp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6d1y"]
 texture = ExtResource("1_ucp7g")
@@ -18,20 +20,30 @@ texture_region_size = Vector2i(64, 64)
 1:29/0 = 0
 2:29/0 = 0
 3:29/0 = 0
+3:29/0/custom_data_0 = true
 4:29/0 = 0
+4:29/0/custom_data_0 = true
 4:28/0 = 0
 5:28/0 = 0
 5:29/0 = 0
+5:29/0/custom_data_0 = true
 6:28/0 = 0
 7:29/0 = 0
+7:29/0/custom_data_0 = true
 7:28/0 = 0
 6:29/0 = 0
+6:29/0/custom_data_0 = true
 5:30/0 = 0
+5:30/0/custom_data_0 = true
 6:27/0 = 0
 6:30/0 = 0
+6:30/0/custom_data_0 = true
 7:30/0 = 0
+7:30/0/custom_data_0 = true
 8:30/0 = 0
+8:30/0/custom_data_0 = true
 9:30/0 = 0
+9:30/0/custom_data_0 = true
 10:30/0 = 0
 11:30/0 = 0
 12:30/0 = 0
@@ -246,6 +258,7 @@ texture_region_size = Vector2i(64, 64)
 11:26/0 = 0
 10:26/0 = 0
 9:26/0 = 0
+9:26/0/custom_data_0 = true
 13:26/0 = 0
 13:25/0 = 0
 13:24/0 = 0
@@ -256,6 +269,7 @@ texture_region_size = Vector2i(64, 64)
 10:25/0 = 0
 9:25/0 = 0
 8:25/0 = 0
+8:25/0/custom_data_0 = true
 7:25/0 = 0
 6:25/0 = 0
 5:25/0 = 0
@@ -272,6 +286,7 @@ texture_region_size = Vector2i(64, 64)
 8:26/0 = 0
 9:24/0 = 0
 8:24/0 = 0
+8:24/0/custom_data_0 = true
 7:24/0 = 0
 6:24/0 = 0
 5:24/0 = 0
@@ -286,6 +301,7 @@ texture_region_size = Vector2i(64, 64)
 6:22/0 = 0
 7:22/0 = 0
 8:22/0 = 0
+8:22/0/custom_data_0 = true
 9:22/0 = 0
 10:22/0 = 0
 11:22/0 = 0
@@ -317,6 +333,7 @@ texture_region_size = Vector2i(64, 64)
 10:21/0 = 0
 9:21/0 = 0
 8:21/0 = 0
+8:21/0/custom_data_0 = true
 7:21/0 = 0
 0:18/0 = 0
 2:18/0 = 0
@@ -533,19 +550,43 @@ texture_region_size = Vector2i(64, 64)
 1:30/0 = 0
 2:30/0 = 0
 3:30/0 = 0
+3:30/0/custom_data_0 = true
 4:30/0 = 0
+4:30/0/custom_data_0 = true
 5:31/0 = 0
+5:31/0/custom_data_0 = true
 6:31/0 = 0
+6:31/0/custom_data_0 = true
 7:31/0 = 0
+7:31/0/custom_data_0 = true
 8:31/0 = 0
+8:31/0/custom_data_0 = true
 2:2/0 = 0
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
 4:2/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_en5vp"]
+texture = ExtResource("2_vxb4p")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+1:0/0 = 0
+1:0/0/custom_data_0 = true
+2:0/0 = 0
+2:0/0/custom_data_0 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m5ddt"]
+texture = ExtResource("3_en5vp")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:1/0 = 0
+
 [resource]
 tile_size = Vector2i(64, 64)
 custom_data_layer_0/name = "is_walkable"
 custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_o6d1y")
+sources/1 = SubResource("TileSetAtlasSource_en5vp")
+sources/2 = SubResource("TileSetAtlasSource_m5ddt")

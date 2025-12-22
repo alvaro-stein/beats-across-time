@@ -2,15 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bxounjagt73t2" path="res://main_scenes/menu.gd" id="1_38vls"]
 [ext_resource type="FontFile" uid="uid://dworrnp8lpw41" path="res://assets/fonts/NewRocker-Regular.ttf" id="2_1xsbm"]
-[ext_resource type="Texture2D" uid="uid://cjw8xqm6h84ps" path="res://assets/placeholder/menu.png" id="2_f5540"]
+[ext_resource type="PackedScene" uid="uid://b5jra0qp4euh7" path="res://world/tutorial.tscn" id="2_f5540"]
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_38vls")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-scale = Vector2(1.2022222, 1.2022221)
-texture = ExtResource("2_f5540")
+[node name="Tutorial" parent="." instance=ExtResource("2_f5540")]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 8
@@ -35,12 +32,11 @@ theme_override_font_sizes/font_size = 100
 text = "Beats Across Time"
 horizontal_alignment = 1
 
-[node name="GameTestButton" type="Button" parent="CenterContainer/MainPanel"]
-visible = false
+[node name="Jogar" type="Button" parent="CenterContainer/MainPanel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1xsbm")
 theme_override_font_sizes/font_size = 50
-text = "Game Test"
+text = "Jogar"
 
 [node name="Level1Button" type="Button" parent="CenterContainer/MainPanel"]
 layout_mode = 2
@@ -59,6 +55,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1xsbm")
 theme_override_font_sizes/font_size = 50
 text = "Boss"
+
+[node name="TutorialButton" type="Button" parent="CenterContainer/MainPanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1xsbm")
+theme_override_font_sizes/font_size = 50
+text = "Tutorial"
 
 [node name="OptionsButton" type="Button" parent="CenterContainer/MainPanel"]
 layout_mode = 2
@@ -182,10 +184,15 @@ theme_override_fonts/font = ExtResource("2_1xsbm")
 theme_override_font_sizes/font_size = 40
 text = "Voltar"
 
-[connection signal="pressed" from="CenterContainer/MainPanel/GameTestButton" to="." method="_on_game_test_button_pressed"]
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(960, 540)
+zoom = Vector2(0.5, 0.5)
+
+[connection signal="pressed" from="CenterContainer/MainPanel/Jogar" to="." method="_on_jogar_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/Level1Button" to="." method="_on_level_1_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/Level2Button" to="." method="_on_level_2_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/BossButton" to="." method="_on_boss_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainPanel/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/Master/MasterSlider" to="." method="_on_master_slider_value_changed"]
