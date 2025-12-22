@@ -14,6 +14,7 @@ extends BaseLevel
 @onready var box2: MarginContainer = $HUD/DialogBox/Box2
 @onready var hearts: HBoxContainer = $HUD/Control/Hearts
 @onready var arrow: AnimatedSprite2D = $Arrow
+@onready var meat: Node2D = $Meat
 
 enum TutorialState { MOVE, ATTACK, SUFFER_DAMAGE, FINISH }
 var tutorial_state: TutorialState
@@ -121,6 +122,9 @@ func update_tutorial_state() -> void:
 				await _play_fall_shader(bridge)
 				arrow.visible = true
 				arrow.play("default")
+			if meat: meat.visible = true
+			if meat and meat.grid_pos == player.grid_pos:
+				meat.consume()
 			
 			text1.text = "Meus ensinamentos acabaram por hoje. Agora é hora de você explorar sozinho e caçar no ritmo do combate!"
 			box2.visible = false

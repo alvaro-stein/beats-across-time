@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://dscddwibve1vf"]
+[gd_scene load_steps=7 format=4 uid="uid://dscddwibve1vf"]
 
 [ext_resource type="PackedScene" uid="uid://1bgx3vbeic4o" path="res://world/base_level.tscn" id="1_dxc64"]
 [ext_resource type="Script" uid="uid://gethg87chhvd" path="res://world/cave.gd" id="2_b0r7h"]
 [ext_resource type="TileSet" uid="uid://vlrmmuxamvdb" path="res://assets/tilesets/pokemon-tileset.tres" id="2_uu7a7"]
 [ext_resource type="Resource" uid="uid://wexxdeoax8r8" path="res://audio/songs/idade_das_pedras.tres" id="3_b0r7h"]
 [ext_resource type="PackedScene" uid="uid://vuxv68c2mc5d" path="res://entities/enemies/traps/spikes.tscn" id="5_qvsky"]
+[ext_resource type="PackedScene" uid="uid://d3urvyyxj6hsa" path="res://assets/sprites/meat.tscn" id="6_su2hg"]
 
 [node name="Cave" instance=ExtResource("1_dxc64")]
 script = ExtResource("2_b0r7h")
@@ -48,3 +49,8 @@ position = Vector2(925, 856)
 [node name="Spikes9" parent="Enemies" index="8" instance=ExtResource("5_qvsky")]
 position = Vector2(865, 850)
 activation_beat = 1
+
+[node name="Meat" parent="." index="4" instance=ExtResource("6_su2hg")]
+visible = true
+position = Vector2(929, 483)
+grid_pos = Vector2i(14, 7)
