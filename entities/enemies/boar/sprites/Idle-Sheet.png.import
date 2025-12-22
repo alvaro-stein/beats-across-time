@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v4m7qmblewpi"
-path="res://.godot/imported/Walk-Sheet-Black.png-6896d0723a3e6c356c8ff1909a8cd3e3.ctex"
+uid="uid://it1i00emwgvb"
+path="res://.godot/imported/Idle-Sheet.png-97e4dd203138300bef83d8819fe68bc8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/enemies/minions/boar/sprites/Walk-Sheet-Black.png"
-dest_files=["res://.godot/imported/Walk-Sheet-Black.png-6896d0723a3e6c356c8ff1909a8cd3e3.ctex"]
+source_file="res://entities/enemies/boar/sprites/Idle-Sheet.png"
+dest_files=["res://.godot/imported/Idle-Sheet.png-97e4dd203138300bef83d8819fe68bc8.ctex"]
 
 [params]
 

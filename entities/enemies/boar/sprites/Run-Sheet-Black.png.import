@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfa83ri2qimdc"
-path="res://.godot/imported/wolf.png-2459196ee31c4eaaccbf7d1f8a8418fa.ctex"
+uid="uid://ksjdp7phthnp"
+path="res://.godot/imported/Run-Sheet-Black.png-308dc2779b62cb12cf4196f683139e6f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/enemies/minions/wolf/wolf.png"
-dest_files=["res://.godot/imported/wolf.png-2459196ee31c4eaaccbf7d1f8a8418fa.ctex"]
+source_file="res://entities/enemies/boar/sprites/Run-Sheet-Black.png"
+dest_files=["res://.godot/imported/Run-Sheet-Black.png-308dc2779b62cb12cf4196f683139e6f.ctex"]
 
 [params]
 

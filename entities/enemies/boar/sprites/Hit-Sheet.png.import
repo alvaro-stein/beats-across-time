@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddaclun6edo2"
-path="res://.godot/imported/Hit-Sheet-Black.png-f03fa689431dddb74704f3fb8f6ecc0c.ctex"
+uid="uid://bwol825elnocs"
+path="res://.godot/imported/Hit-Sheet.png-8d59502c440a9587dbb7a426ef58430b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/enemies/minions/boar/sprites/Hit-Sheet-Black.png"
-dest_files=["res://.godot/imported/Hit-Sheet-Black.png-f03fa689431dddb74704f3fb8f6ecc0c.ctex"]
+source_file="res://entities/enemies/boar/sprites/Hit-Sheet.png"
+dest_files=["res://.godot/imported/Hit-Sheet.png-8d59502c440a9587dbb7a426ef58430b.ctex"]
 
 [params]
 

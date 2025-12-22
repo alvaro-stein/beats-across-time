@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://il5e0r6x7n2y"]
 
-[ext_resource type="Script" uid="uid://1irv441niia" path="res://entities/enemies/minions/boar/boar.gd" id="1_0njbn"]
+[ext_resource type="Script" uid="uid://1irv441niia" path="res://entities/enemies/boar/boar.gd" id="1_0njbn"]
 
 [node name="Boar" type="Node2D"]
 script = ExtResource("1_0njbn")

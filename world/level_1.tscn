@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://1bgx3vbeic4o" path="res://world/base_level.tscn" id="1_4eky5"]
 [ext_resource type="Resource" uid="uid://wexxdeoax8r8" path="res://audio/songs/idade_das_pedras.tres" id="2_go5pu"]
 [ext_resource type="TileSet" uid="uid://vlrmmuxamvdb" path="res://assets/tilesets/pokemon-tileset.tres" id="3_cbh7h"]
-[ext_resource type="PackedScene" uid="uid://dr8ww4opp6dft" path="res://entities/enemies/minions/wolf/wolf.tscn" id="4_phy56"]
+[ext_resource type="PackedScene" uid="uid://dr8ww4opp6dft" path="res://entities/enemies/wolf/wolf.tscn" id="4_phy56"]
 [ext_resource type="PackedScene" uid="uid://vuxv68c2mc5d" path="res://entities/enemies/traps/spikes.tscn" id="5_0fba2"]
 
 [node name="Level1" instance=ExtResource("1_4eky5")]

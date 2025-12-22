@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://driegft0ci7a4"
-path="res://.godot/imported/javali-export.png-e01ed03e0e46fbe2407cfdf78538b0ad.ctex"
+path="res://.godot/imported/javali-export.png-de055183ae6f4ea049bb894da5b91869.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/enemies/minions/boar/javali-export.png"
-dest_files=["res://.godot/imported/javali-export.png-e01ed03e0e46fbe2407cfdf78538b0ad.ctex"]
+source_file="res://entities/enemies/boar/javali-export.png"
+dest_files=["res://.godot/imported/javali-export.png-de055183ae6f4ea049bb894da5b91869.ctex"]
 
 [params]
 

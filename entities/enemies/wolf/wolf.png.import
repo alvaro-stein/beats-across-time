@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfudh7jax06my"
-path="res://.godot/imported/Idle-Sheet-Black.png-88e9c9104317472855d97f616684809b.ctex"
+uid="uid://cfa83ri2qimdc"
+path="res://.godot/imported/wolf.png-ba542c1fe38e0aa7c25821a77a554b9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/enemies/minions/boar/sprites/Idle-Sheet-Black.png"
-dest_files=["res://.godot/imported/Idle-Sheet-Black.png-88e9c9104317472855d97f616684809b.ctex"]
+source_file="res://entities/enemies/wolf/wolf.png"
+dest_files=["res://.godot/imported/wolf.png-ba542c1fe38e0aa7c25821a77a554b9f.ctex"]
 
 [params]
 
