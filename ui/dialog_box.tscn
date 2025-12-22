@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2vd87iaqfx47"]
+
+[ext_resource type="StyleBox" uid="uid://h2s25o72w7bn" path="res://ui/style_box.tres" id="1_m0eb4"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -290.0
+offset_bottom = 290.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 180
+theme_override_constants/margin_right = 180
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_m0eb4")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(250, 290)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Bem vindo ao tutorial de
+Beats Across Time!
+Para começar, tente se mover com as teclas
+WASD ou ▲ ▼ ◄ ► .
+O truque é que você precisa acertar a batida da música!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

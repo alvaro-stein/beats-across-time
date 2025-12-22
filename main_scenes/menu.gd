@@ -11,6 +11,7 @@ extends Node
 @onready var fullscreen_toggle: CheckButton = $CenterContainer/OptionsPanel/FullscreenRow/FullscreenToggle
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var tutorial: Tutorial = $Tutorial
+@onready var jogar_button: Button = $CenterContainer/MainPanel/Jogar
 
 
 func _ready() -> void:
@@ -33,6 +34,8 @@ func _ready() -> void:
 
 
 func _on_jogar_pressed() -> void:
+	for button in main_panel.get_children().filter(func(c): return c is Button):
+		button.disabled = true
 	var tween1 = create_tween()
 	var tween2 = create_tween()
 	tween1.tween_property(camera_2d, "zoom", Vector2(1.0, 1.0), 5.0).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_IN_OUT)
