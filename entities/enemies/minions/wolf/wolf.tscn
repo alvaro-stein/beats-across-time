@@ -1,7 +1,7 @@
 [gd_scene load_steps=33 format=3 uid="uid://dr8ww4opp6dft"]
 
-[ext_resource type="Script" uid="uid://bnx4f25vjjqjw" path="res://entities/enemies/minions/wolf.gd" id="1_tw775"]
-[ext_resource type="Texture2D" uid="uid://cfa83ri2qimdc" path="res://entities/enemies/minions/wolf.png" id="2_uq2h4"]
+[ext_resource type="Script" uid="uid://bnx4f25vjjqjw" path="res://entities/enemies/minions/wolf/wolf.gd" id="1_tw775"]
+[ext_resource type="Texture2D" uid="uid://cfa83ri2qimdc" path="res://entities/enemies/minions/wolf/wolf.png" id="2_uq2h4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p3u6j"]
 atlas = ExtResource("2_uq2h4")
@@ -270,7 +270,7 @@ grow_vertical = 2
 color = Color(1, 0, 0, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -14.000001)
+position = Vector2(2.3841858e-07, -14.000001)
 scale = Vector2(1.3, 1.3)
 sprite_frames = SubResource("SpriteFrames_ejbxk")
-animation = &"attack"
+animation = &"left"
