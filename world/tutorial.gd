@@ -5,9 +5,16 @@ extends BaseLevel
 @onready var dummy: Dummy = $Enemies/Dummy
 @onready var hud: CanvasLayer = $HUD
 @onready var obstacles: TileMapLayer = $GridSystem/Obstacles
+@onready var impact: AudioStreamPlayer = $Impact
+
+const IMPACT = preload("uid://d3q7ssn66sjch")
 
 func _ready() -> void:
 	super()
+	impact.bus = &"Sfx"
+	player.get_node("Impact").bus = &"Sfx"
+	dummy.get_node("Impact").bus = &"Sfx"
+	
 	Conductor.stream_paused = true
 	hud.visible = false
 	# Impedir o pause de funcionar até a transição terminar
@@ -17,6 +24,9 @@ func _play_fall_shader(object):
 	object.visible = true
 	var tween = create_tween()
 	tween.tween_property(object.material, "shader_parameter/progress", 1.0, 0.5).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	
+	await tween.finished
+	impact.play()
 	# tocar screen shake com som generico
 
 
@@ -26,7 +36,9 @@ func start_tutorial() -> void:
 	_play_fall_animation(dummy)
 	await get_tree().create_timer(0.25).timeout
 	_play_fall_shader(obstacles)
-	# Tocar Som & Efeito visual de cair no chão
+	await get_tree().create_timer(1.25).timeout
+	Conductor.stream_paused = false
+	hud.visible = true
 
 
 func _play_fall_animation(entity: Node2D) -> void:
@@ -41,4 +53,5 @@ func _play_fall_animation(entity: Node2D) -> void:
 	
 	await tween1.finished
 	entity.get_node("ImpactAnimation").play("impact")
+	entity.get_node("Impact").play()
 	# TODO: Tocar Som & Efeito visual de cair no chão
