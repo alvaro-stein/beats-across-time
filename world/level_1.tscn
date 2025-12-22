@@ -19,7 +19,6 @@ tile_set = ExtResource("3_cbh7h")
 
 [node name="Player" parent="." index="1"]
 position = Vector2(418, 673)
-max_hp = 3
 
 [node name="Wolf" parent="Enemies" index="0" instance=ExtResource("4_phy56")]
 position = Vector2(1201, 158)

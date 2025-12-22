@@ -5,19 +5,40 @@ extends BaseLevel
 @onready var dummy: Dummy = $Enemies/Dummy
 @onready var hud: CanvasLayer = $HUD
 @onready var obstacles: TileMapLayer = $GridSystem/Obstacles
+@onready var bridge: TileMapLayer = $GridSystem/Bridge
 @onready var impact: AudioStreamPlayer = $Impact
+@onready var dialog_box: Control = $HUD/DialogBox
+@onready var box1: MarginContainer = $HUD/DialogBox/Box1
+@onready var text1: RichTextLabel = $HUD/DialogBox/Box1/PanelContainer/MarginContainer/Text1
+@onready var text2: RichTextLabel = $HUD/DialogBox/Box2/PanelContainer/MarginContainer/Text2
+@onready var box2: MarginContainer = $HUD/DialogBox/Box2
+@onready var hearts: HBoxContainer = $HUD/Control/Hearts
+
+enum TutorialState { MOVE, ATTACK, SUFFER_DAMAGE, FINISH }
+var tutorial_state: TutorialState
 
 const IMPACT = preload("uid://d3q7ssn66sjch")
 
 func _ready() -> void:
 	super()
+	Conductor.beat_hit.connect(_on_beat_hit)
+	
 	impact.bus = &"Sfx"
 	player.get_node("Impact").bus = &"Sfx"
 	dummy.get_node("Impact").bus = &"Sfx"
 	
 	Conductor.stream_paused = true
 	hud.visible = false
-	# Impedir o pause de funcionar até a transição terminar
+	obstacles.visible = false
+	bridge.visible = false
+	box2.visible = false
+	hearts.visible = false
+	# TODO: Impedir o pause de funcionar até a transição terminar
+	
+	tutorial_state = TutorialState.MOVE
+	
+	text1.text = "Boas vindas ao tutorial de Beats Across Time!\nPara começar, tente se mover com as teclas\nWASD ou ▲ ▼ ◄ ►\ne chegar até mim!\nMas atenção: Você precisa acertar a batida da música para agir!"
+	text2.text = "Para atacar, você só precisa se mover na direção de um inimigo ao seu alcance.\nVamos, tente me golpear ao menos três vezes!"
 
 func _play_fall_shader(object):
 	object.material.set_shader_parameter("progress", 0.0)
@@ -55,3 +76,32 @@ func _play_fall_animation(entity: Node2D) -> void:
 	entity.get_node("ImpactAnimation").play("impact")
 	entity.get_node("Impact").play()
 	# TODO: Tocar Som & Efeito visual de cair no chão
+
+
+func _on_beat_hit(_beat, _measure) -> void:
+	update_tutorial_state()
+
+
+func update_tutorial_state() -> void:
+	match tutorial_state:
+		TutorialState.MOVE:
+			if player.grid_pos.x >= 15:
+				box2.visible = true
+				tutorial_state = TutorialState.ATTACK
+		
+		TutorialState.ATTACK:
+			if dummy and dummy.current_hp == 7:
+				box2.visible = false
+				hearts.visible = true
+				text1.text = "Você possui somente 5 pontos de vida, visíveis no topo da tela.\nVocê poderá recuperar sua vida caso consiga caçar por um pedaço de carne por aí!\nSe entendeu, então me dê mais 3 golpes para continuar."
+			elif dummy and dummy.current_hp == 4:
+				box2.visible = true
+				tutorial_state = TutorialState.SUFFER_DAMAGE
+				text2.text = "Tanto você quanto seus inimigos causam 1 de dano por ataque.\nA sua sorte é que eles são previsíveis!\nFique atento ao chão: sempre que ele brilhar em vermelho, um ataque virá no próximo turno.\nMe dê mais um golpe que te mostro!"
+			
+		TutorialState.SUFFER_DAMAGE:
+			pass
+			
+		TutorialState.FINISH:
+			if bridge.visible == false:
+				_play_fall_shader(bridge)
