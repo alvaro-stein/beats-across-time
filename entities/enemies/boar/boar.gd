@@ -13,7 +13,7 @@ var _stun_counter: int = 0
 var _player_ref: Player
 
 # Referências visuais
-@onready var sprite: Sprite2D = $Sprite2D # Assumindo que existe
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D # Assumindo que existe
 @onready var danger_line: Line2D = $DangerLine # Vamos criar isso na cena
 
 func _ready() -> void:
@@ -70,7 +70,7 @@ func _handle_seek_state() -> void:
 
 	# 2. Se não alinhou, persegue normal (A*)
 	# Usamos a lógica padrão de movimento (copiada ou herdada, mas simplificada aqui)
-	var path = grid.astar.get_id_path(grid_pos, _player_ref.grid_pos)
+	var path = grid.pathfinder.get_id_path(grid_pos, _player_ref.grid_pos)
 	if path.size() > 1:
 		var next = path[1]
 		if not grid.is_tile_occupied(next):
