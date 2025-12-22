@@ -5,7 +5,6 @@ enum State { SEEK, PRE_CHARGE, CHARGE, STUNNED }
 
 # Constantes de configuração visual e feedback
 const TILE_HALF_SIZE := 32.0
-const TWEEN_FADE_DURATION := 0.2
 const SHAKE_DURATION := 0.05
 const SHAKE_OFFSET := 10.0
 
@@ -172,8 +171,11 @@ func _draw_danger_line() -> void:
 	
 	# Feedback de "Warning" piscando
 	var tween = create_tween()
-	danger_line.modulate.a = 0.5
-	tween.set_loops(2).tween_property(danger_line, "modulate:a", 1.0, TWEEN_FADE_DURATION)
+	danger_line.modulate.a = 0.25
+	tween.tween_property(danger_line, "modulate:a", 0.75, 0.15)
+	var tween2 = create_tween()
+	danger_line.width = 0
+	tween2.tween_property(danger_line, "width", 64, 0.15)
 
 func _animate_shake() -> void:
 	var tween = create_tween()

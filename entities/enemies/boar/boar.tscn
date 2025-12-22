@@ -240,4 +240,4 @@ frame_progress = 0.06022975
 
 [node name="DangerLine" type="Line2D" parent="."]
 width = 64.0
-default_color = Color(1, 0, 0, 0.8)
+default_color = Color(1, 0, 0, 0.7490196)

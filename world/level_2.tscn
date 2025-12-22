@@ -18,20 +18,59 @@ tile_map_data = PackedByteArray("AAACAA0AAAACAAIAAAAMAAUAAAACAAIAAAAUAA4AAAACAAI
 tile_set = ExtResource("3_3aral")
 
 [node name="Player" parent="." index="1"]
-position = Vector2(780, 604)
+position = Vector2(438, 1038)
 max_hp = 4
 
 [node name="Spikes" parent="Enemies" index="0" instance=ExtResource("4_tcim1")]
-position = Vector2(728, 245)
+position = Vector2(995, 726)
 
 [node name="Spikes2" parent="Enemies" index="1" instance=ExtResource("4_tcim1")]
-position = Vector2(539, 670)
+position = Vector2(609, 736)
 
 [node name="Spikes3" parent="Enemies" index="2" instance=ExtResource("4_tcim1")]
-position = Vector2(933, 496)
+position = Vector2(1309, 539)
 
-[node name="Boar" parent="Enemies" index="3" instance=ExtResource("5_1ed1g")]
-position = Vector2(355, 748)
+[node name="Spikes4" parent="Enemies" index="3" instance=ExtResource("4_tcim1")]
+position = Vector2(1236, 277)
 
-[node name="Boar2" parent="Enemies" index="4" instance=ExtResource("5_1ed1g")]
-position = Vector2(1625, 923)
+[node name="Spikes5" parent="Enemies" index="4" instance=ExtResource("4_tcim1")]
+position = Vector2(362, 345)
+
+[node name="Spikes6" parent="Enemies" index="5" instance=ExtResource("4_tcim1")]
+position = Vector2(290, 924)
+
+[node name="Spikes7" parent="Enemies" index="6" instance=ExtResource("4_tcim1")]
+position = Vector2(290, 924)
+
+[node name="Spikes8" parent="Enemies" index="7" instance=ExtResource("4_tcim1")]
+position = Vector2(1641, 343)
+
+[node name="Spikes9" parent="Enemies" index="8" instance=ExtResource("4_tcim1")]
+position = Vector2(1263, 984)
+
+[node name="Spikes10" parent="Enemies" index="9" instance=ExtResource("4_tcim1")]
+position = Vector2(1631, 871)
+
+[node name="Spikes11" parent="Enemies" index="10" instance=ExtResource("4_tcim1")]
+position = Vector2(984, 160)
+
+[node name="Spikes12" parent="Enemies" index="11" instance=ExtResource("4_tcim1")]
+position = Vector2(561, 92)
+
+[node name="Spikes13" parent="Enemies" index="12" instance=ExtResource("4_tcim1")]
+position = Vector2(736, 400)
+
+[node name="Boar" parent="Enemies" index="13" instance=ExtResource("5_1ed1g")]
+position = Vector2(285, 652)
+
+[node name="Boar2" parent="Enemies" index="14" instance=ExtResource("5_1ed1g")]
+position = Vector2(638, 255)
+
+[node name="Boar3" parent="Enemies" index="15" instance=ExtResource("5_1ed1g")]
+position = Vector2(1465, 360)
+
+[node name="Boar4" parent="Enemies" index="16" instance=ExtResource("5_1ed1g")]
+position = Vector2(966, 860)
+
+[node name="Boar5" parent="Enemies" index="17" instance=ExtResource("5_1ed1g")]
+position = Vector2(1750, 749)
