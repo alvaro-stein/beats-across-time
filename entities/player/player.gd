@@ -2,6 +2,9 @@ class_name Player
 extends GridEntity
 
 @export var sprite: AnimatedSprite2D
+@onready var audio: AudioStreamPlayer = $AudioStreamPlayer
+const ERROR = preload("uid://bttec44mk0pj8")
+const HIT = preload("uid://c6c63snjq6v2r")
 
 #const ACTIONS: Dictionary[StringName, Dictionary] = {
 	#&"up": { "vector": Vector2i.UP, "collider": up },
@@ -29,6 +32,10 @@ func _ready() -> void:
 
 # Executes turn on beat hit based on the GM logic order
 func execute_turn(beat: Conductor.BeatInfo, measure: int) -> void:
+	# is_immobile pra facilitar no tutorial pra dar soft lock no player
+	if is_immobile:
+		return
+	
 	if buffered_action in ACTIONS_VECTOR:
 		var direction: Vector2i = ACTIONS_VECTOR[buffered_action]
 		var target_grid_pos: Vector2i = self.grid_pos + direction
@@ -49,7 +56,8 @@ func _on_action_judged(action: StringName, judgment: InputJudge.Judgment, error_
 		buffered_action = action
 		_update_facing_direction(action)
 	elif judgment == InputJudge.Judgment.MISS:
-		pass
+		audio.stream = ERROR
+		audio.play()
 
 func _update_facing_direction(action: StringName) -> void:
 	if action in ACTIONS_VECTOR:

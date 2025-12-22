@@ -67,3 +67,6 @@ occupies_tile = true
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_rkbax")
 animation = &"down"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0

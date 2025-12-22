@@ -1,5 +1,6 @@
 extends Node
 
+@onready var center_container: CenterContainer = $CenterContainer
 @onready var main_panel := $CenterContainer/MainPanel
 @onready var options_panel := $CenterContainer/OptionsPanel
 @onready var master_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/Master/MasterSlider
@@ -8,6 +9,9 @@ extends Node
 @onready var hit_window_option: OptionButton = $CenterContainer/OptionsPanel/HitWindowRow/HitWindowOption
 @onready var resolution_option: OptionButton = $CenterContainer/OptionsPanel/ResolutionRow/ResolutionOption
 @onready var fullscreen_toggle: CheckButton = $CenterContainer/OptionsPanel/FullscreenRow/FullscreenToggle
+@onready var camera_2d: Camera2D = $Camera2D
+@onready var tutorial: Tutorial = $Tutorial
+@onready var jogar_button: Button = $CenterContainer/MainPanel/Jogar
 
 
 func _ready() -> void:
@@ -29,8 +33,21 @@ func _ready() -> void:
 	_window_mode_init()
 
 
-func _on_game_test_button_pressed() -> void:
-	SceneManager.change_scene_to(SceneManager.MainScene.GAME_TEST)
+func _on_jogar_pressed() -> void:
+	for button in main_panel.get_children().filter(func(c): return c is Button):
+		button.disabled = true
+	var tween1 = create_tween()
+	var tween2 = create_tween()
+	tween1.tween_property(camera_2d, "zoom", Vector2(1.0, 1.0), 5.0).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_IN_OUT)
+	tween2.tween_property(center_container, "modulate:a", 0.0, 1.5)
+	
+	await get_tree().create_timer(3.5).timeout
+	tutorial.start_tutorial()
+	
+	await tween1.finished
+	center_container.queue_free()
+	camera_2d.queue_free()
+
 
 func _on_level_1_button_pressed() -> void:
 	SceneManager.change_scene_to(SceneManager.MainScene.LEVEL1)
@@ -40,6 +57,9 @@ func _on_level_2_button_pressed() -> void:
 
 func _on_boss_button_pressed() -> void:
 	SceneManager.change_scene_to(SceneManager.MainScene.BOSS)
+
+func _on_caverna_button_pressed() -> void:
+	SceneManager.change_scene_to(SceneManager.MainScene.CAVE)
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()

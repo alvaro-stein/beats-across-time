@@ -32,7 +32,6 @@ func _ready() -> void:
 	grid_pos = grid.local_to_map(self.global_position)
 	self.global_position = grid.map_to_local(grid_pos)
 	grid.register_entity(self, grid_pos)
-	assert(grid.get_cell_source_id(grid_pos) != -1, "Error: Entity '%s' started on an empty or invalid tile at %s. Please check the TileMap placement." % [name, grid_pos])
 
 
 @abstract
