@@ -48,9 +48,9 @@ func _on_opcoes_button_pressed() -> void:
 	pause_panel.visible = false
 	options_panel.visible = true
 
-func _on_back_button_pressed() -> void:
-	options_panel.visible = false
-	pause_panel.visible = true
+func _on_reiniciar_button_pressed() -> void:
+	get_parent().get_parent().restart_level()
+
 
 func _on_sair_button_pressed() -> void:
 	Conductor.stream_paused = false
@@ -78,7 +78,6 @@ func _on_music_slider_value_changed(value: float) -> void:
 	var idx = AudioServer.get_bus_index(&"Music")
 	if idx >= 0:
 		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
-
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	var idx = AudioServer.get_bus_index(&"Sfx")
@@ -129,6 +128,10 @@ func _on_fullscreen_toggle_toggled(pressed: bool) -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		resolution_option.disabled = false
 		_apply_resolution_index(resolution_option.selected)
+
+func _on_back_button_pressed() -> void:
+	options_panel.visible = false
+	pause_panel.visible = true
 
 func _window_mode_init() -> void:
 	var mode := DisplayServer.window_get_mode()

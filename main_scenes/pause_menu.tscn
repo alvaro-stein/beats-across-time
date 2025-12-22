@@ -11,8 +11,6 @@ script = ExtResource("1_script")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -52,6 +50,12 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 48
 text = "Opções"
+
+[node name="ReiniciarButton" type="Button" parent="CenterContainer/PausePanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+text = "Reiniciar"
 
 [node name="SairButton" type="Button" parent="CenterContainer/PausePanel"]
 layout_mode = 2
@@ -153,6 +157,7 @@ text = "Voltar"
 
 [connection signal="pressed" from="CenterContainer/PausePanel/IniciarButton" to="." method="_on_iniciar_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PausePanel/OpcoesButton" to="." method="_on_opcoes_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PausePanel/ReiniciarButton" to="." method="_on_reiniciar_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PausePanel/SairButton" to="." method="_on_sair_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/MasterRow/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/MusicRow/MusicSlider" to="." method="_on_music_slider_value_changed"]
