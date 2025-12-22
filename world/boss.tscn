@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://dmi6cyua4k65w"]
+[gd_scene load_steps=5 format=4 uid="uid://dmi6cyua4k65w"]
 
 [ext_resource type="PackedScene" uid="uid://1bgx3vbeic4o" path="res://world/base_level.tscn" id="1_yiikb"]
 [ext_resource type="Resource" uid="uid://wexxdeoax8r8" path="res://audio/songs/idade_das_pedras.tres" id="2_1oc2v"]
 [ext_resource type="TileSet" uid="uid://vlrmmuxamvdb" path="res://assets/tilesets/pokemon-tileset.tres" id="3_hqu54"]
 [ext_resource type="PackedScene" uid="uid://crvexsoicooa8" path="res://entities/enemies/black_boar/black_boar.tscn" id="4_tnfrm"]
-[ext_resource type="PackedScene" uid="uid://cokds8bgj6bdx" path="res://entities/dummy/dummy.tscn" id="5_1oc2v"]
 
 [node name="Boss" instance=ExtResource("1_yiikb")]
 music = ExtResource("2_1oc2v")
@@ -22,6 +21,3 @@ position = Vector2(735, 739)
 
 [node name="BlackBoar" parent="Enemies" index="0" instance=ExtResource("4_tnfrm")]
 position = Vector2(1796, 755)
-
-[node name="Dummy" parent="." index="4" instance=ExtResource("5_1oc2v")]
-position = Vector2(860, 600)

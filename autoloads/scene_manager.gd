@@ -5,8 +5,8 @@ extends Node
 
 enum MainScene {
 	MENU,
-	GAME_TEST,
 	LEVEL1,
+	CAVE,
 	LEVEL2,
 	BOSS,
 	TUTORIAL
@@ -14,8 +14,8 @@ enum MainScene {
 
 const MAIN_SCENES_UIDS: Dictionary = {
 	MainScene.MENU: "uid://lo2gkq41mho5",
-	MainScene.GAME_TEST: "uid://cebb54jsd0lk8",
 	MainScene.LEVEL1: "uid://brk3mycpdxa6w",
+	MainScene.CAVE: "uid://dscddwibve1vf",
 	MainScene.LEVEL2: "uid://dkfna8rdw6dsc",
 	MainScene.BOSS: "uid://dmi6cyua4k65w",
 	MainScene.TUTORIAL: "uid://b5jra0qp4euh7"

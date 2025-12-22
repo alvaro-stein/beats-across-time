@@ -41,6 +41,10 @@ func _ready() -> void:
 	
 	text1.text = "Boas vindas ao tutorial de Beats Across Time!\nPara começar, tente se mover com as teclas\nWASD ou ▲ ▼ ◄ ►\ne chegar até mim!\nMas atenção: Você precisa acertar a batida da música para agir!"
 	text2.text = "Para atacar, você só precisa se mover na direção de um inimigo ao seu alcance.\nVamos, tente me golpear ao menos três vezes!"
+	
+	if get_parent().name == "root":
+		start_tutorial()
+
 
 func _play_fall_shader(object):
 	object.material.set_shader_parameter("progress", 0.0)
@@ -95,7 +99,7 @@ func update_tutorial_state() -> void:
 			if dummy and dummy.current_hp == 7:
 				box2.visible = false
 				hearts.visible = true
-				text1.text = "Você possui somente 5 pontos de vida, visíveis no topo da tela.\nVocê poderá recuperar sua vida caso consiga caçar por um pedaço de carne por aí!\nSe entendeu, então me dê mais 3 golpes para continuar."
+				text1.text = "Você possui somente 5 pontos de vida, visíveis no topo da tela.\nVocê poderá recuperar sua vida caso consuma pedaços de carne depois de caçar.\nSe entendeu, então me dê mais 3 golpes para continuar."
 			elif dummy and dummy.current_hp == 4:
 				box2.visible = true
 				tutorial_state = TutorialState.SUFFER_DAMAGE
@@ -117,3 +121,9 @@ func update_tutorial_state() -> void:
 			
 			text1.text = "Meus ensinamentos acabaram por hoje. Agora é hora de você explorar sozinho e caçar no ritmo do combate!"
 			box2.visible = false
+			
+			if player.grid_pos.x >= 12 and\
+			   player.grid_pos.x <= 14 and\
+			   player.grid_pos.y == -1:
+				var SM := SceneManager
+				SM.change_scene_to(SM.MainScene.LEVEL1)

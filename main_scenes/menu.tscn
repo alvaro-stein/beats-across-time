@@ -56,12 +56,11 @@ theme_override_fonts/font = ExtResource("2_1xsbm")
 theme_override_font_sizes/font_size = 50
 text = "Boss"
 
-[node name="TutorialButton" type="Button" parent="CenterContainer/MainPanel"]
-visible = false
+[node name="CavernaButton" type="Button" parent="CenterContainer/MainPanel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1xsbm")
 theme_override_font_sizes/font_size = 50
-text = "Tutorial"
+text = "Caverna"
 
 [node name="OptionsButton" type="Button" parent="CenterContainer/MainPanel"]
 layout_mode = 2
@@ -193,7 +192,7 @@ zoom = Vector2(0.5, 0.5)
 [connection signal="pressed" from="CenterContainer/MainPanel/Level1Button" to="." method="_on_level_1_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/Level2Button" to="." method="_on_level_2_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/BossButton" to="." method="_on_boss_button_pressed"]
-[connection signal="pressed" from="CenterContainer/MainPanel/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MainPanel/CavernaButton" to="." method="_on_caverna_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="CenterContainer/MainPanel/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/Master/MasterSlider" to="." method="_on_master_slider_value_changed"]

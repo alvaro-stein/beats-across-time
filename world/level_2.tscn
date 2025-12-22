@@ -76,7 +76,7 @@ position = Vector2(638, 255)
 position = Vector2(1465, 360)
 
 [node name="Boar4" parent="Enemies" index="16" instance=ExtResource("5_1ed1g")]
-position = Vector2(966, 860)
+position = Vector2(1120, 987)
 
 [node name="Boar5" parent="Enemies" index="17" instance=ExtResource("5_1ed1g")]
 position = Vector2(1750, 749)

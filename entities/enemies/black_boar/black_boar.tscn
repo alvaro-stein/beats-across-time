@@ -253,7 +253,7 @@ animations = [{
 script = ExtResource("1_kfb6y")
 vision_range = 20
 faction = 2
-max_hp = 20
+max_hp = 30
 is_hittable = true
 occupies_tile = true
 

@@ -58,8 +58,8 @@ func _on_level_2_button_pressed() -> void:
 func _on_boss_button_pressed() -> void:
 	SceneManager.change_scene_to(SceneManager.MainScene.BOSS)
 
-func _on_tutorial_button_pressed() -> void:
-	SceneManager.change_scene_to(SceneManager.MainScene.TUTORIAL)
+func _on_caverna_button_pressed() -> void:
+	SceneManager.change_scene_to(SceneManager.MainScene.CAVE)
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
