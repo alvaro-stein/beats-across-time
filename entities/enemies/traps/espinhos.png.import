@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://driegft0ci7a4"
-path="res://.godot/imported/javali-export.png-babdcc9360d7a7eb0dbe0179ad668ab1.ctex"
+uid="uid://cmg6asyfwrxrq"
+path="res://.godot/imported/espinhos.png-30efbdd56388d04e2ff77c9ec8c754dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/enemies/minions/javali-export.png"
-dest_files=["res://.godot/imported/javali-export.png-babdcc9360d7a7eb0dbe0179ad668ab1.ctex"]
+source_file="res://entities/enemies/traps/espinhos.png"
+dest_files=["res://.godot/imported/espinhos.png-30efbdd56388d04e2ff77c9ec8c754dd.ctex"]
 
 [params]
 

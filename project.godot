@@ -48,6 +48,7 @@ folder_colors={
 "res://entities/enemies/": "red",
 "res://entities/player/": "yellow",
 "res://main_scenes/": "teal",
+"res://ui/": "yellow",
 "res://world/": "green"
 }
 

@@ -1,11 +1,11 @@
 class_name SimpleEnemy
 extends GridEntity
 
-enum State { CHASE, CHARGE_ATTACK }
+enum State { SEEK, CHARGE_ATTACK }
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var state: State = State.CHASE
+var state: State = State.SEEK
 var _attack_target_pos: Vector2i
 var player: Player
 
@@ -28,7 +28,7 @@ func execute_turn(_beat: Conductor.BeatInfo, _measure: int) -> void:
 		return
 
 	match state:
-		State.CHASE:
+		State.SEEK:
 			_handle_chase_state()
 			
 		State.CHARGE_ATTACK:
@@ -64,7 +64,7 @@ func _handle_attack_execution() -> void:
 		_animate_bump(_attack_target_pos)
 	
 	# Reseta estado
-	state = State.CHASE
+	state = State.SEEK
 	if danger_indicator:
 		danger_indicator.visible = false
 
@@ -81,16 +81,18 @@ func _move_towards_target(target_pos: Vector2i) -> void:
 		if direction_x != 0:
 			# Se direction_x < 0 (indo pra esquerda), flip_h vira TRUE.
 			# Se direction_x > 0 (indo pra direita), flip_h vira FALSE.
-			sprite_2d.flip_h = (direction_x > 0)
+			sprite.flip_h = (direction_x > 0)
 		
 		# The tile is empty?
 		if not grid.is_tile_occupied(next_step):
+			sprite.play("left")
 			move_to(next_step)
 
 
 func _animate_bump(target_pos: Vector2i) -> void:
 	var target_world = grid.map_to_local(target_pos)
 	var start_world = global_position
+	sprite.play("attack")
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", start_world.lerp(target_world, 0.5), 0.05)
 	tween.tween_property(self, "global_position", start_world, 0.05)

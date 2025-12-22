@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjs74oxuv27to"
-path="res://.godot/imported/tiles_atlas-resized.png-f76242309bf0bf75ac84a3d1f915a1d4.ctex"
+uid="uid://driegft0ci7a4"
+path="res://.godot/imported/javali-export.png-de055183ae6f4ea049bb894da5b91869.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholder/tiles_atlas-resized.png"
-dest_files=["res://.godot/imported/tiles_atlas-resized.png-f76242309bf0bf75ac84a3d1f915a1d4.ctex"]
+source_file="res://entities/enemies/boar/javali-export.png"
+dest_files=["res://.godot/imported/javali-export.png-de055183ae6f4ea049bb894da5b91869.ctex"]
 
 [params]
 

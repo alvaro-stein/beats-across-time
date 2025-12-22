@@ -64,5 +64,6 @@ is_hittable = true
 occupies_tile = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_rkbax")
 animation = &"down"
