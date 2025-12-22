@@ -1,21 +1,26 @@
 extends Node
 
 @onready var center_container: CenterContainer = $CenterContainer
-@onready var main_panel := $CenterContainer/MainPanel
-@onready var options_panel := $CenterContainer/OptionsPanel
-@onready var master_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/Master/MasterSlider
-@onready var music_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/Music/MusicSlider
-@onready var sfx_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/Sfx/SfxSlider
-@onready var hit_window_option: OptionButton = $CenterContainer/OptionsPanel/HitWindowRow/HitWindowOption
-@onready var resolution_option: OptionButton = $CenterContainer/OptionsPanel/ResolutionRow/ResolutionOption
-@onready var fullscreen_toggle: CheckButton = $CenterContainer/OptionsPanel/FullscreenRow/FullscreenToggle
+@onready var main_panel: VBoxContainer = $MainPanel
+@onready var options_panel: VBoxContainer = $CenterContainer/PanelContainer/OptionsPanel
+@onready var panel_container: PanelContainer = $CenterContainer/PanelContainer
+
+@onready var master_slider: HSlider = $CenterContainer/PanelContainer/OptionsPanel/AudioContainer/Master/MasterSlider
+@onready var music_slider: HSlider = $CenterContainer/PanelContainer/OptionsPanel/AudioContainer/Music/MusicSlider
+@onready var sfx_slider: HSlider = $CenterContainer/PanelContainer/OptionsPanel/AudioContainer/Sfx/SfxSlider
+
+@onready var hit_window_option: OptionButton = $CenterContainer/PanelContainer/OptionsPanel/HitWindowRow/HitWindowOption
+@onready var resolution_option: OptionButton = $CenterContainer/PanelContainer/OptionsPanel/ResolutionRow/ResolutionOption
+@onready var fullscreen_toggle: CheckButton = $CenterContainer/PanelContainer/OptionsPanel/FullscreenRow/FullscreenToggle
+
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var tutorial: Tutorial = $Tutorial
-@onready var jogar_button: Button = $CenterContainer/MainPanel/Jogar
+@onready var jogar_button: Button = $MainPanel/Jogar
+@onready var title_label: Label = $CenterContainer/TitleLabel
 
 
 func _ready() -> void:
-	options_panel.visible = false
+	panel_container.visible = false
 	_sound_sliders_init()
 	hit_window_option.clear()
 	hit_window_option.add_item("Difícil")
@@ -66,10 +71,12 @@ func _on_quit_button_pressed() -> void:
 
 func _on_options_button_pressed() -> void:
 	main_panel.visible = false
-	options_panel.visible = true
+	title_label.visible = false
+	panel_container.visible = true
 
 func _on_back_button_pressed() -> void:
-	options_panel.visible = false
+	panel_container.visible = false
+	title_label.visible = true
 	main_panel.visible = true
 
 
