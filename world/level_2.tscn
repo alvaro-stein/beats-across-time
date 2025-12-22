@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://dkfna8rdw6dsc"]
+[gd_scene load_steps=7 format=4 uid="uid://dkfna8rdw6dsc"]
 
 [ext_resource type="PackedScene" uid="uid://1bgx3vbeic4o" path="res://world/base_level.tscn" id="1_wpvgc"]
+[ext_resource type="Script" uid="uid://rt0q3o5s4ll5" path="res://world/level_2.gd" id="2_3aral"]
 [ext_resource type="Resource" uid="uid://wexxdeoax8r8" path="res://audio/songs/idade_das_pedras.tres" id="2_85yey"]
 [ext_resource type="TileSet" uid="uid://vlrmmuxamvdb" path="res://assets/tilesets/pokemon-tileset.tres" id="3_3aral"]
 [ext_resource type="PackedScene" uid="uid://vuxv68c2mc5d" path="res://entities/enemies/traps/spikes.tscn" id="4_tcim1"]
 [ext_resource type="PackedScene" uid="uid://il5e0r6x7n2y" path="res://entities/enemies/boar/boar.tscn" id="5_1ed1g"]
 
 [node name="Level2" instance=ExtResource("1_wpvgc")]
+script = ExtResource("2_3aral")
 music = ExtResource("2_85yey")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="GridSystem" index="0"]
