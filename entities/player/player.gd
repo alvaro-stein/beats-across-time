@@ -32,6 +32,10 @@ func _ready() -> void:
 
 # Executes turn on beat hit based on the GM logic order
 func execute_turn(beat: Conductor.BeatInfo, measure: int) -> void:
+	# is_immobile pra facilitar no tutorial pra dar soft lock no player
+	if is_immobile:
+		return
+	
 	if buffered_action in ACTIONS_VECTOR:
 		var direction: Vector2i = ACTIONS_VECTOR[buffered_action]
 		var target_grid_pos: Vector2i = self.grid_pos + direction

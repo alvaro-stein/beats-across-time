@@ -97,10 +97,12 @@ func update_tutorial_state() -> void:
 			elif dummy and dummy.current_hp == 4:
 				box2.visible = true
 				tutorial_state = TutorialState.SUFFER_DAMAGE
-				text2.text = "Tanto você quanto seus inimigos causam 1 de dano por ataque.\nA sua sorte é que eles são previsíveis!\nFique atento ao chão: sempre que ele brilhar em vermelho, um ataque virá no próximo turno.\nMe dê mais um golpe que te mostro!"
+				text2.text = "Tanto você quanto seus inimigos causam 1 de dano por ataque.\nA sua sorte é que eles são previsíveis!\nFique atento ao chão: sempre que ele brilhar em vermelho, um ataque virá no próximo turno.\nMe dê mais dois golpes que eu te mostro!"
 			
 		TutorialState.SUFFER_DAMAGE:
-			pass
+			if dummy and dummy.current_hp == 2:
+				player.is_immobile = true
+				pass
 			
 		TutorialState.FINISH:
 			if bridge.visible == false:
