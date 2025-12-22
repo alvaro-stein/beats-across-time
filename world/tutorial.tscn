@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://b5jra0qp4euh7"]
+[gd_scene load_steps=25 format=4 uid="uid://b5jra0qp4euh7"]
 
 [ext_resource type="PackedScene" uid="uid://1bgx3vbeic4o" path="res://world/base_level.tscn" id="1_ylxie"]
 [ext_resource type="Resource" uid="uid://wexxdeoax8r8" path="res://audio/songs/idade_das_pedras.tres" id="2_crnid"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://biadscrw6nqbn" path="res://assets/shaders/fall.gdshader" id="4_i85x7"]
 [ext_resource type="Texture2D" uid="uid://2r2k1bw085m6" path="res://assets/vfx/impact-effect.png" id="6_kwxfm"]
 [ext_resource type="PackedScene" uid="uid://c2vd87iaqfx47" path="res://ui/dialog_box.tscn" id="9_rqjkl"]
+[ext_resource type="PackedScene" uid="uid://bim8gsq3iri44" path="res://assets/placeholder/arrow/arrow.tscn" id="9_rx3np"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8sf26"]
 shader = ExtResource("4_i85x7")
@@ -156,6 +157,11 @@ stream = ExtResource("4_4x7bc")
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_i2efn")
 animation = &"impact"
+
+[node name="Arrow" parent="." index="4" instance=ExtResource("9_rx3np")]
+visible = false
+position = Vector2(900, 325)
+frame_progress = 0.14682378
 
 [node name="DialogBox" parent="HUD" index="3" instance=ExtResource("9_rqjkl")]
 

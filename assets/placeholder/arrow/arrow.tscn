@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://bim8gsq3iri44"]
+
+[ext_resource type="Texture2D" uid="uid://c6mry2p730w3h" path="res://assets/placeholder/arrow/seta-de-upgrade2.png" id="1_rpcum"]
+[ext_resource type="Texture2D" uid="uid://cic7h4hx722ss" path="res://assets/placeholder/arrow/seta-de-upgrade3.png" id="2_0yjja"]
+[ext_resource type="Texture2D" uid="uid://bfpilke0l2wp2" path="res://assets/placeholder/arrow/seta-de-upgrade4.png" id="3_q781n"]
+[ext_resource type="Texture2D" uid="uid://buuxejo6dkfof" path="res://assets/placeholder/arrow/seta-de-upgrade5.png" id="4_7631t"]
+[ext_resource type="Texture2D" uid="uid://dto3nfsxf0ktk" path="res://assets/placeholder/arrow/seta-de-upgrade.png" id="5_mi11e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fy1af"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rpcum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0yjja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q781n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7631t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mi11e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="Arrow" type="AnimatedSprite2D"]
+position = Vector2(36, 66)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fy1af")
+frame_progress = 0.45798102

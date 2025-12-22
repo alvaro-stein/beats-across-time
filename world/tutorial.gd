@@ -13,6 +13,7 @@ extends BaseLevel
 @onready var text2: RichTextLabel = $HUD/DialogBox/Box2/PanelContainer/MarginContainer/Text2
 @onready var box2: MarginContainer = $HUD/DialogBox/Box2
 @onready var hearts: HBoxContainer = $HUD/Control/Hearts
+@onready var arrow: AnimatedSprite2D = $Arrow
 
 enum TutorialState { MOVE, ATTACK, SUFFER_DAMAGE, FINISH }
 var tutorial_state: TutorialState
@@ -117,7 +118,9 @@ func update_tutorial_state() -> void:
 		TutorialState.FINISH:
 			player.is_immobile = false
 			if bridge.visible == false:
-				_play_fall_shader(bridge)
+				await _play_fall_shader(bridge)
+				arrow.visible = true
+				arrow.play("default")
 			
 			text1.text = "Meus ensinamentos acabaram por hoje. Agora é hora de você explorar sozinho e caçar no ritmo do combate!"
 			box2.visible = false
