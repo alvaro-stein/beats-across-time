@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SongData" load_steps=3 format=3 uid="uid://bkvw7rghnut5a"]
+
+[ext_resource type="AudioStream" uid="uid://bny7yf4hdy0th" path="res://audio/songs/test_song_60bpm_4-4time_301beats_sHazDb.mp3" id="1_d8qey"]
+[ext_resource type="Script" uid="uid://cw6c0jneo1r5a" path="res://audio/songs/song_data.gd" id="1_lsbj4"]
+
+[resource]
+script = ExtResource("1_lsbj4")
+audio_stream = ExtResource("1_d8qey")
+metadata/_custom_type_script = "uid://cw6c0jneo1r5a"

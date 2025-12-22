@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg7r5hrjyh45f"]
+
+[ext_resource type="Script" uid="uid://d038cwrcqub35" path="res://world/grid_system.gd" id="1_yn6g3"]
+
+[node name="GridSystem" type="TileMapLayer"]
+script = ExtResource("1_yn6g3")

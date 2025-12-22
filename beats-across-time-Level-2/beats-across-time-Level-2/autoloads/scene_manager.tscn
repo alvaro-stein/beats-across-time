@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpwa56x2f2t4g"]
+
+[ext_resource type="Script" uid="uid://ecufjcygka4c" path="res://autoloads/scene_manager.gd" id="1_m7hrt"]
+
+[node name="SceneManager" type="Node"]
+script = ExtResource("1_m7hrt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
