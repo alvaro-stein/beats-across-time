@@ -50,7 +50,7 @@ position = Vector2(893, 274)
 
 [node name="Spikes3" parent="Enemies" index="9" instance=ExtResource("5_0fba2")]
 position = Vector2(1396, 270)
-activation_beat = 3
+activation_beat = 1
 
 [node name="Spikes4" parent="Enemies" index="10" instance=ExtResource("5_0fba2")]
 position = Vector2(675, 479)
@@ -65,8 +65,7 @@ activation_beat = 1
 
 [node name="Spikes7" parent="Enemies" index="13" instance=ExtResource("5_0fba2")]
 position = Vector2(1047, 808)
-activation_beat = 3
+activation_beat = 1
 
 [node name="Spikes8" parent="Enemies" index="14" instance=ExtResource("5_0fba2")]
 position = Vector2(1431, 588)
-activation_beat = 3
