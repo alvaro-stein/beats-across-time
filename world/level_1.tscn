@@ -18,23 +18,54 @@ tile_map_data = PackedByteArray("AAAHAAQAAAAAAAIAAAAJAAkAAAAAAAIAAAAMAAMAAAAAAAI
 tile_set = ExtResource("3_cbh7h")
 
 [node name="Player" parent="." index="1"]
-position = Vector2(864, 545)
+position = Vector2(418, 673)
 max_hp = 3
 
-[node name="SimpleEnemy" parent="Enemies" index="0" instance=ExtResource("4_phy56")]
+[node name="Wolf" parent="Enemies" index="0" instance=ExtResource("4_phy56")]
 position = Vector2(1201, 158)
 
-[node name="SimpleEnemy2" parent="Enemies" index="1" instance=ExtResource("4_phy56")]
-position = Vector2(419, 417)
+[node name="Wolf2" parent="Enemies" index="1" instance=ExtResource("4_phy56")]
+position = Vector2(278, 263)
 
-[node name="SimpleEnemy3" parent="Enemies" index="2" instance=ExtResource("4_phy56")]
+[node name="Wolf3" parent="Enemies" index="2" instance=ExtResource("4_phy56")]
 position = Vector2(1768, 540)
 
-[node name="Spikes" parent="Enemies" index="3" instance=ExtResource("5_0fba2")]
-position = Vector2(1108, 656)
+[node name="Wolf4" parent="Enemies" index="3" instance=ExtResource("4_phy56")]
+position = Vector2(1742, 90)
 
-[node name="Spikes2" parent="Enemies" index="4" instance=ExtResource("5_0fba2")]
-position = Vector2(788, 330)
+[node name="Wolf5" parent="Enemies" index="4" instance=ExtResource("4_phy56")]
+position = Vector2(219, 880)
 
-[node name="Spikes3" parent="Enemies" index="5" instance=ExtResource("5_0fba2")]
-position = Vector2(577, 810)
+[node name="Wolf6" parent="Enemies" index="5" instance=ExtResource("4_phy56")]
+position = Vector2(1264, 830)
+
+[node name="Wolf7" parent="Enemies" index="6" instance=ExtResource("4_phy56")]
+position = Vector2(960, 531)
+
+[node name="Spikes" parent="Enemies" index="7" instance=ExtResource("5_0fba2")]
+position = Vector2(1059, 600)
+
+[node name="Spikes2" parent="Enemies" index="8" instance=ExtResource("5_0fba2")]
+position = Vector2(893, 274)
+
+[node name="Spikes3" parent="Enemies" index="9" instance=ExtResource("5_0fba2")]
+position = Vector2(1396, 270)
+activation_beat = 1
+
+[node name="Spikes4" parent="Enemies" index="10" instance=ExtResource("5_0fba2")]
+position = Vector2(675, 479)
+activation_beat = 1
+
+[node name="Spikes5" parent="Enemies" index="11" instance=ExtResource("5_0fba2")]
+position = Vector2(423, 850)
+
+[node name="Spikes6" parent="Enemies" index="12" instance=ExtResource("5_0fba2")]
+position = Vector2(421, 336)
+activation_beat = 1
+
+[node name="Spikes7" parent="Enemies" index="13" instance=ExtResource("5_0fba2")]
+position = Vector2(1047, 808)
+activation_beat = 1
+
+[node name="Spikes8" parent="Enemies" index="14" instance=ExtResource("5_0fba2")]
+position = Vector2(1431, 588)

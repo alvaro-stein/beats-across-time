@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwaylevibm333"]
 
-[ext_resource type="Script" uid="uid://cqayt3o5m28l5" path="res://main_scenes/game_over.gd" id="1_isimj"]
+[ext_resource type="Script" uid="uid://cqayt3o5m28l5" path="res://ui/game_over.gd" id="1_isimj"]
 [ext_resource type="FontFile" uid="uid://dworrnp8lpw41" path="res://assets/fonts/NewRocker-Regular.ttf" id="1_y62gx"]
 
 [node name="GameOver" type="ColorRect"]

@@ -5,13 +5,13 @@ enum State { SEEK, PRE_CHARGE, CHARGE, STUNNED }
 
 # Constantes de configuração visual e feedback
 const TILE_HALF_SIZE := 32.0
-const TWEEN_FADE_DURATION := 0.2
 const SHAKE_DURATION := 0.05
 const SHAKE_OFFSET := 10.0
 
 @export_group("Boar Settings")
 @export var charge_range: int = 4
 @export var stun_duration_beats: int = 2
+@export var vision_range: int = 4
 
 # Referências
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -62,7 +62,7 @@ func _handle_seek_state() -> void:
 	
 	# Verifica alinhamento nos eixos (X ou Y) e distância
 	var is_aligned = (diff.x == 0 or diff.y == 0)
-	var in_range = diff.length() <= charge_range
+	var in_range = diff.length() <= vision_range
 	
 	if is_aligned and in_range and _has_clear_line_of_sight(player.grid_pos):
 		_start_pre_charge(diff)
@@ -171,8 +171,11 @@ func _draw_danger_line() -> void:
 	
 	# Feedback de "Warning" piscando
 	var tween = create_tween()
-	danger_line.modulate.a = 0.5
-	tween.set_loops(2).tween_property(danger_line, "modulate:a", 1.0, TWEEN_FADE_DURATION)
+	danger_line.modulate.a = 0.25
+	tween.tween_property(danger_line, "modulate:a", 0.75, 0.15)
+	var tween2 = create_tween()
+	danger_line.width = 0
+	tween2.tween_property(danger_line, "width", 64, 0.15)
 
 func _animate_shake() -> void:
 	var tween = create_tween()

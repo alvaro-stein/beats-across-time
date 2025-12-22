@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfsnqv6skuiv2"]
 
-[ext_resource type="Script" uid="uid://bgewv8ojpx4sj" path="res://main_scenes/pause_menu.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bgewv8ojpx4sj" path="res://ui/pause_menu.gd" id="1_script"]
 [ext_resource type="FontFile" uid="uid://dworrnp8lpw41" path="res://assets/fonts/NewRocker-Regular.ttf" id="2_font"]
 
 [node name="PauseMenu" type="CanvasLayer"]
@@ -11,8 +11,6 @@ script = ExtResource("1_script")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -53,6 +51,12 @@ theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 48
 text = "Opções"
 
+[node name="ReiniciarButton" type="Button" parent="CenterContainer/PausePanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+text = "Reiniciar"
+
 [node name="SairButton" type="Button" parent="CenterContainer/PausePanel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
@@ -66,47 +70,53 @@ layout_mode = 2
 [node name="OptionsTitle" type="Label" parent="CenterContainer/OptionsPanel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 72
 text = "Opções"
 horizontal_alignment = 1
 
 [node name="AudioContainer" type="VBoxContainer" parent="CenterContainer/OptionsPanel"]
 layout_mode = 2
 
-[node name="MasterRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/AudioContainer"]
+[node name="Master" type="VBoxContainer" parent="CenterContainer/OptionsPanel/AudioContainer"]
 layout_mode = 2
 
-[node name="MasterLabel" type="Label" parent="CenterContainer/OptionsPanel/AudioContainer/MasterRow"]
+[node name="MasterLabel" type="Label" parent="CenterContainer/OptionsPanel/AudioContainer/Master"]
 layout_mode = 2
-text = "Volume"
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 30
+text = "Volume Geral"
 
-[node name="MasterSlider" type="HSlider" parent="CenterContainer/OptionsPanel/AudioContainer/MasterRow"]
+[node name="MasterSlider" type="HSlider" parent="CenterContainer/OptionsPanel/AudioContainer/Master"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 
-[node name="MusicRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/AudioContainer"]
+[node name="Music" type="VBoxContainer" parent="CenterContainer/OptionsPanel/AudioContainer"]
 layout_mode = 2
 
-[node name="MusicLabel" type="Label" parent="CenterContainer/OptionsPanel/AudioContainer/MusicRow"]
+[node name="MusicLabel" type="Label" parent="CenterContainer/OptionsPanel/AudioContainer/Music"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 30
 text = "Música"
 
-[node name="MusicSlider" type="HSlider" parent="CenterContainer/OptionsPanel/AudioContainer/MusicRow"]
+[node name="MusicSlider" type="HSlider" parent="CenterContainer/OptionsPanel/AudioContainer/Music"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.01
 
-[node name="SfxRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel/AudioContainer"]
+[node name="Sfx" type="VBoxContainer" parent="CenterContainer/OptionsPanel/AudioContainer"]
 layout_mode = 2
 
-[node name="SfxLabel" type="Label" parent="CenterContainer/OptionsPanel/AudioContainer/SfxRow"]
+[node name="SfxLabel" type="Label" parent="CenterContainer/OptionsPanel/AudioContainer/Sfx"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 30
 text = "SFX"
 
-[node name="SfxSlider" type="HSlider" parent="CenterContainer/OptionsPanel/AudioContainer/SfxRow"]
+[node name="SfxSlider" type="HSlider" parent="CenterContainer/OptionsPanel/AudioContainer/Sfx"]
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
@@ -117,46 +127,59 @@ layout_mode = 2
 
 [node name="HitWindowLabel" type="Label" parent="CenterContainer/OptionsPanel/HitWindowRow"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 30
 text = "Janela de acerto"
 
 [node name="HitWindowOption" type="OptionButton" parent="CenterContainer/OptionsPanel/HitWindowRow"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
 
 [node name="ResolutionRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel"]
 layout_mode = 2
 
 [node name="ResolutionLabel" type="Label" parent="CenterContainer/OptionsPanel/ResolutionRow"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 30
 text = "Resolução"
 
 [node name="ResolutionOption" type="OptionButton" parent="CenterContainer/OptionsPanel/ResolutionRow"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
 
 [node name="FullscreenRow" type="HBoxContainer" parent="CenterContainer/OptionsPanel"]
 layout_mode = 2
 
 [node name="FullscreenLabel" type="Label" parent="CenterContainer/OptionsPanel/FullscreenRow"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 30
 text = "Tela cheia"
 
 [node name="FullscreenToggle" type="CheckButton" parent="CenterContainer/OptionsPanel/FullscreenRow"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 20
 text = "Ativar"
 
 [node name="BackButton" type="Button" parent="CenterContainer/OptionsPanel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 40
 text = "Voltar"
 
 [connection signal="pressed" from="CenterContainer/PausePanel/IniciarButton" to="." method="_on_iniciar_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PausePanel/OpcoesButton" to="." method="_on_opcoes_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PausePanel/ReiniciarButton" to="." method="_on_reiniciar_button_pressed"]
 [connection signal="pressed" from="CenterContainer/PausePanel/SairButton" to="." method="_on_sair_button_pressed"]
-[connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/MasterRow/MasterSlider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/MusicRow/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/SfxRow/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/Master/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/OptionsPanel/AudioContainer/Sfx/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="item_selected" from="CenterContainer/OptionsPanel/HitWindowRow/HitWindowOption" to="." method="_on_hit_window_option_selected"]
 [connection signal="item_selected" from="CenterContainer/OptionsPanel/ResolutionRow/ResolutionOption" to="." method="_on_resolution_option_selected"]
 [connection signal="toggled" from="CenterContainer/OptionsPanel/FullscreenRow/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]

@@ -55,7 +55,7 @@ func _start_attack_charge(target_pos: Vector2i) -> void:
 		danger_indicator.visible = true
 		var tween = create_tween()
 		danger_indicator.modulate.a = 0.0
-		tween.tween_property(danger_indicator, "modulate:a", 0.7, 0.15)
+		tween.tween_property(danger_indicator, "modulate:a", 0.75, 0.15)
 
 
 func _handle_attack_execution() -> void:
