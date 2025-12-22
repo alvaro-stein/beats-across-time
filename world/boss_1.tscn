@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://vlrmmuxamvdb" path="res://assets/tilesets/pokemon-tileset.tres" id="2_253gx"]
 [ext_resource type="Resource" uid="uid://wexxdeoax8r8" path="res://audio/songs/idade_das_pedras.tres" id="2_td5mb"]
 [ext_resource type="PackedScene" uid="uid://vuxv68c2mc5d" path="res://entities/enemies/traps/spikes.tscn" id="5_nqnoc"]
-[ext_resource type="PackedScene" uid="uid://dr8ww4opp6dft" path="res://entities/enemies/minions/simple_enemy.tscn" id="7_xyt0u"]
+[ext_resource type="PackedScene" uid="uid://dr8ww4opp6dft" path="res://entities/enemies/minions/wolf.tscn" id="7_xyt0u"]
 
 [node name="Boss1" instance=ExtResource("1_s5xka")]
 music = ExtResource("2_td5mb")

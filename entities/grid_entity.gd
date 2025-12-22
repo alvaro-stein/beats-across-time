@@ -56,7 +56,7 @@ func move_to(target_grid_pos: Vector2i) -> void:
 	# 4. Inicia o movimento visual (Tween)
 	var tween = create_tween()
 	# Usar ease_out deixa o movimento mais "snappy" (rápido no começo, suave no fim)
-	tween.tween_property(self, "global_position", target_world_pos, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "global_position", target_world_pos, 0.20).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	#tween.tween_callback(func(): movement_finished.emit())
 
 
