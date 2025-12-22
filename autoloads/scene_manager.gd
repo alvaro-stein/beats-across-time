@@ -1,5 +1,8 @@
 extends Node
 
+@onready var color_rect: ColorRect = $CanvasLayer/ColorRect
+
+
 enum MainScene {
 	MENU,
 	GAME_TEST,
@@ -26,5 +29,34 @@ func _ready() -> void:
 
 
 func change_scene_to(next_scene: MainScene) -> void:
-	# TODO: Add transition scene animation
+	await fade_in()
+	
 	get_tree().change_scene_to_file(MAIN_SCENES_UIDS[next_scene])
+	await get_tree().scene_changed
+	
+	fade_out()
+
+
+func fade_in() -> void:
+	var tween = create_tween()
+	tween.tween_property(color_rect.material, "shader_parameter/progress", 24.0, 0.5)
+	await tween.finished
+
+
+func fade_out() -> void:
+	var tween = create_tween()
+	color_rect.material.set_shader_parameter("invert", false)
+	color_rect.material.set_shader_parameter("progress", 0.0)
+	tween.tween_property(color_rect.material, "shader_parameter/progress", 24.0, 0.5)
+	
+	await tween.finished
+	color_rect.material.set_shader_parameter("invert", true)
+	color_rect.material.set_shader_parameter("progress", 0.0)
+
+func restart_level(level: BaseLevel) -> void:
+	await fade_in()
+	
+	get_tree().change_scene_to_file(level.scene_file_path)
+	await get_tree().scene_changed
+	
+	fade_out()

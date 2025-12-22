@@ -19,4 +19,4 @@ func _ready() -> void:
 
 # Função pública para ser chamada pelos botões de UI
 func restart_level() -> void:
-	get_tree().change_scene_to_file(self.scene_file_path)
+	SceneManager.restart_level(self)
