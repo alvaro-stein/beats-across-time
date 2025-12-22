@@ -175,11 +175,12 @@ animations = [{
 }]
 
 [node name="Dummy" type="Node2D"]
+z_index = 1
 script = ExtResource("1_vlfdi")
+faction = 2
 max_hp = 10
 is_hittable = true
 occupies_tile = true
-is_immobile = true
 
 [node name="DangerIndicator" type="ColorRect" parent="."]
 visible = false
@@ -200,4 +201,4 @@ color = Color(1, 0, 0, 0.7490196)
 scale = Vector2(1.35, 1.35)
 sprite_frames = SubResource("SpriteFrames_2oc6b")
 animation = &"idle"
-frame_progress = 0.37180838
+frame_progress = 0.44516346

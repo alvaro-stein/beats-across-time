@@ -27,6 +27,8 @@ func _ready() -> void:
 	player.get_node("Impact").bus = &"Sfx"
 	dummy.get_node("Impact").bus = &"Sfx"
 	
+	player.visible = false
+	dummy.visible = false
 	Conductor.stream_paused = true
 	hud.visible = false
 	obstacles.visible = false
@@ -102,8 +104,16 @@ func update_tutorial_state() -> void:
 		TutorialState.SUFFER_DAMAGE:
 			if dummy and dummy.current_hp == 2:
 				player.is_immobile = true
-				pass
+				if dummy.state == dummy.State.IDLE:
+					dummy.state = dummy.State.CHARGE
+			if player.current_hp == 2:
+				dummy.state = dummy.State.IDLE
+				tutorial_state = TutorialState.FINISH
 			
 		TutorialState.FINISH:
+			player.is_immobile = false
 			if bridge.visible == false:
 				_play_fall_shader(bridge)
+			
+			text1.text = "Meus ensinamentos acabaram por hoje. Agora é hora de você explorar sozinho e caçar no ritmo do combate!"
+			box2.visible = false
