@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bo3r3e78431x1"]
 
-[ext_resource type="PackedScene" uid="uid://cwaylevibm333" path="res://main_scenes/game_over.tscn" id="1_276te"]
-[ext_resource type="PackedScene" uid="uid://cfsnqv6skuiv2" path="res://main_scenes/pause_menu.tscn" id="2_546lt"]
+[ext_resource type="PackedScene" uid="uid://cwaylevibm333" path="res://ui/game_over.tscn" id="1_276te"]
+[ext_resource type="PackedScene" uid="uid://cfsnqv6skuiv2" path="res://ui/pause_menu.tscn" id="2_546lt"]
 [ext_resource type="PackedScene" uid="uid://bb1k2n1tad3cr" path="res://ui/hearts.tscn" id="3_546lt"]
 
 [node name="HUD" type="CanvasLayer"]

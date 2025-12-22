@@ -2,14 +2,16 @@ extends CanvasLayer
 
 @onready var pause_panel := $CenterContainer/PausePanel
 @onready var options_panel := $CenterContainer/OptionsPanel
-@onready var master_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/MasterRow/MasterSlider
+@onready var master_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/Master/MasterSlider
+@onready var music_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/Music/MusicSlider
+@onready var sfx_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/Sfx/SfxSlider
 @onready var hit_window_option: OptionButton = $CenterContainer/OptionsPanel/HitWindowRow/HitWindowOption
 @onready var resolution_option: OptionButton = $CenterContainer/OptionsPanel/ResolutionRow/ResolutionOption
 @onready var fullscreen_toggle: CheckButton = $CenterContainer/OptionsPanel/FullscreenRow/FullscreenToggle
 
 func _ready() -> void:
 	options_panel.visible = false
-	_master_init()
+	_sound_sliders_init()
 	hit_window_option.clear()
 	hit_window_option.add_item("Difícil")
 	hit_window_option.add_item("Normal")
@@ -57,17 +59,22 @@ func _on_sair_button_pressed() -> void:
 	Conductor.stop()
 	SceneManager.change_scene_to(SceneManager.MainScene.MENU)
 
-func _db_to_slider(db: float) -> float:
-	return db_to_linear(db)
-
 func _slider_to_db(value: float) -> float:
 	var linear = max(value, 0.001)
 	return linear_to_db(linear)
 
-func _master_init() -> void:
+func _sound_sliders_init() -> void:
 	var idx = AudioServer.get_bus_index(&"Master")
 	if idx >= 0:
-		master_slider.value = _db_to_slider(AudioServer.get_bus_volume_db(idx))
+		master_slider.value = db_to_linear(AudioServer.get_bus_volume_db(idx))
+	
+	idx = AudioServer.get_bus_index(&"Music")
+	if idx >= 0:
+		music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(idx))
+	
+	idx = AudioServer.get_bus_index(&"Sfx")
+	if idx >= 0:
+		sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(idx))
 
 func _on_master_slider_value_changed(value: float) -> void:
 	var idx = AudioServer.get_bus_index(&"Master")
