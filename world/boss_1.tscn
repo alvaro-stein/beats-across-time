@@ -18,7 +18,7 @@ tile_map_data = PackedByteArray("AAACAA0AAAACAAIAAAAMAAUAAAACAAIAAAAUAA4AAAACAAI
 tile_set = ExtResource("2_253gx")
 
 [node name="Player" parent="." index="1"]
-position = Vector2(807, 670)
+position = Vector2(780, 604)
 max_hp = 4
 
 [node name="Spikes" parent="Enemies" index="0" instance=ExtResource("5_nqnoc")]
@@ -31,7 +31,7 @@ position = Vector2(539, 670)
 position = Vector2(933, 496)
 
 [node name="Boar" parent="Enemies" index="3" instance=ExtResource("5_td5mb")]
-position = Vector2(484, 675)
+position = Vector2(355, 748)
 
 [node name="Boar2" parent="Enemies" index="4" instance=ExtResource("5_td5mb")]
 position = Vector2(1625, 923)
