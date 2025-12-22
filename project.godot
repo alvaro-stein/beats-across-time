@@ -45,6 +45,7 @@ folder_colors={
 "res://audio/": "purple",
 "res://autoloads/": "pink",
 "res://entities/": "orange",
+"res://entities/dummy/": "gray",
 "res://entities/enemies/": "red",
 "res://entities/player/": "yellow",
 "res://main_scenes/": "teal",
