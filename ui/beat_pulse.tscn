@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d8bt8fxwj0ei"]
+
+[ext_resource type="Shader" uid="uid://cg6gvxl76hb82" path="res://ui/beat_pulse.gdshader" id="1_wqmjj"]
+[ext_resource type="Script" uid="uid://clhkmsu0efcj3" path="res://ui/beat_pulse.gd" id="2_sy7ir"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sy7ir"]
+shader = ExtResource("1_wqmjj")
+shader_parameter/radius = 0.50000002375
+shader_parameter/softness = 2.000000095
+
+[node name="BeatPulse" type="ColorRect"]
+visible = false
+z_index = 50
+material = SubResource("ShaderMaterial_sy7ir")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_sy7ir")

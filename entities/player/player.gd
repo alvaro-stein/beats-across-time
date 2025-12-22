@@ -32,7 +32,6 @@ func _ready() -> void:
 
 # Executes turn on beat hit based on the GM logic order
 func execute_turn(beat: Conductor.BeatInfo, measure: int) -> void:
-	print("Vida do player: " + str(self.current_hp))
 	# is_immobile pra facilitar no tutorial pra dar soft lock no player
 	if is_immobile:
 		return

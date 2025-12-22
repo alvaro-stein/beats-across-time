@@ -127,7 +127,8 @@ func update_tutorial_state() -> void:
 				meat.consume()
 			
 			text1.text = "Meus ensinamentos acabaram por hoje. Agora é hora de você explorar sozinho e caçar no ritmo do combate!"
-			box2.visible = false
+			text2.text = "Deixei uma carne de presente para te ajudar a se recuperar.\nMas se quiser mais, atravesse a ponte para caçar!"
+			box2.visible = true
 			
 			if player.grid_pos.x >= 12 and\
 			   player.grid_pos.x <= 14 and\
