@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbo811osibekp"
-path="res://.godot/imported/LPC_Ancient_Greece_Architecture (1).png-8af758f4c10aa84fd254a2dc35c80928.ctex"
+path="res://.godot/imported/Ancient_Greece_Architecture.png-be3d76fc51385cbbeffa45a6ce1483c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilesets/LPC_Ancient_Greece_Architecture (1).png"
-dest_files=["res://.godot/imported/LPC_Ancient_Greece_Architecture (1).png-8af758f4c10aa84fd254a2dc35c80928.ctex"]
+source_file="res://assets/tilesets/Ancient_Greece_Architecture.png"
+dest_files=["res://.godot/imported/Ancient_Greece_Architecture.png-be3d76fc51385cbbeffa45a6ce1483c1.ctex"]
 
 [params]
 

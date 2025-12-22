@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://df5obcsx35w5a"]
 
 [ext_resource type="Texture2D" uid="uid://c68h5rmbj0g3s" path="res://assets/tilesets/pokemon-tileset.png" id="1_duee2"]
-[ext_resource type="Texture2D" uid="uid://dbo811osibekp" path="res://assets/tilesets/LPC_Ancient_Greece_Architecture (1).png" id="2_sj0rx"]
+[ext_resource type="Texture2D" uid="uid://dbo811osibekp" path="res://assets/tilesets/Ancient_Greece_Architecture.png" id="2_sj0rx"]
 [ext_resource type="Texture2D" uid="uid://dr8476xckp84a" path="res://assets/tilesets/ship_rework-misc.png" id="3_sj0rx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wpvgc"]
