@@ -1,6 +1,6 @@
-extends Node
+extends CanvasLayer
 
-@onready var main_panel := $CenterContainer/MainPanel
+@onready var pause_panel := $CenterContainer/PausePanel
 @onready var options_panel := $CenterContainer/OptionsPanel
 @onready var master_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/Master/MasterSlider
 @onready var music_slider: HSlider = $CenterContainer/OptionsPanel/AudioContainer/Music/MusicSlider
@@ -8,7 +8,6 @@ extends Node
 @onready var hit_window_option: OptionButton = $CenterContainer/OptionsPanel/HitWindowRow/HitWindowOption
 @onready var resolution_option: OptionButton = $CenterContainer/OptionsPanel/ResolutionRow/ResolutionOption
 @onready var fullscreen_toggle: CheckButton = $CenterContainer/OptionsPanel/FullscreenRow/FullscreenToggle
-
 
 func _ready() -> void:
 	options_panel.visible = false
@@ -29,34 +28,40 @@ func _ready() -> void:
 	_window_mode_init()
 
 
-func _on_game_test_button_pressed() -> void:
-	SceneManager.change_scene_to(SceneManager.MainScene.GAME_TEST)
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc"):
+		if visible:
+			_on_iniciar_button_pressed()
+		else:
+			show_menu()
 
-func _on_level_1_button_pressed() -> void:
-	SceneManager.change_scene_to(SceneManager.MainScene.LEVEL1)
 
-func _on_level_2_button_pressed() -> void:
-	SceneManager.change_scene_to(SceneManager.MainScene.LEVEL2)
+func show_menu() -> void:
+	visible = true
+	Conductor.stream_paused = true
+	pause_panel.visible = true
+	options_panel.visible = false
 
-func _on_boss_button_pressed() -> void:
-	SceneManager.change_scene_to(SceneManager.MainScene.BOSS)
+func _on_iniciar_button_pressed() -> void:
+	Conductor.stream_paused = false
+	visible = false
 
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
-
-func _on_options_button_pressed() -> void:
-	main_panel.visible = false
+func _on_opcoes_button_pressed() -> void:
+	pause_panel.visible = false
 	options_panel.visible = true
 
-func _on_back_button_pressed() -> void:
-	options_panel.visible = false
-	main_panel.visible = true
+func _on_reiniciar_button_pressed() -> void:
+	get_parent().get_parent().restart_level()
 
+
+func _on_sair_button_pressed() -> void:
+	Conductor.stream_paused = false
+	Conductor.stop()
+	SceneManager.change_scene_to(SceneManager.MainScene.MENU)
 
 func _slider_to_db(value: float) -> float:
 	var linear = max(value, 0.001)
 	return linear_to_db(linear)
-
 
 func _sound_sliders_init() -> void:
 	var idx = AudioServer.get_bus_index(&"Master")
@@ -71,24 +76,20 @@ func _sound_sliders_init() -> void:
 	if idx >= 0:
 		sfx_slider.value = db_to_linear(AudioServer.get_bus_volume_db(idx))
 
-
 func _on_master_slider_value_changed(value: float) -> void:
 	var idx = AudioServer.get_bus_index(&"Master")
 	if idx >= 0:
 		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
-
 
 func _on_music_slider_value_changed(value: float) -> void:
 	var idx = AudioServer.get_bus_index(&"Music")
 	if idx >= 0:
 		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
 
-
 func _on_sfx_slider_value_changed(value: float) -> void:
 	var idx = AudioServer.get_bus_index(&"Sfx")
 	if idx >= 0:
 		AudioServer.set_bus_volume_db(idx, _slider_to_db(value))
-
 
 func _on_hit_window_option_selected(index: int) -> void:
 	match index:
@@ -99,10 +100,8 @@ func _on_hit_window_option_selected(index: int) -> void:
 		2:
 			Settings.set_hit_window_mode("facil")
 
-
 func _resolution_presets() -> Array[Vector2i]:
 	return [Vector2i(1280, 720), Vector2i(1600, 900), Vector2i(1920, 1080)]
-
 
 func _resolution_init() -> void:
 	resolution_option.clear()
@@ -118,18 +117,15 @@ func _resolution_init() -> void:
 			best_idx = i
 	resolution_option.select(best_idx)
 
-
 func _on_resolution_option_selected(index: int) -> void:
 	if resolution_option.disabled:
 		return
 	_apply_resolution_index(index)
 
-
 func _apply_resolution_index(index: int) -> void:
 	var presets = _resolution_presets()
 	if index >= 0 and index < presets.size():
 		DisplayServer.window_set_size(presets[index])
-
 
 func _on_fullscreen_toggle_toggled(pressed: bool) -> void:
 	if pressed:
@@ -140,6 +136,9 @@ func _on_fullscreen_toggle_toggled(pressed: bool) -> void:
 		resolution_option.disabled = false
 		_apply_resolution_index(resolution_option.selected)
 
+func _on_back_button_pressed() -> void:
+	options_panel.visible = false
+	pause_panel.visible = true
 
 func _window_mode_init() -> void:
 	var mode := DisplayServer.window_get_mode()
