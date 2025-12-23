@@ -16,7 +16,7 @@ extends BaseLevel
 @onready var arrow: AnimatedSprite2D = $Arrow
 @onready var meat: Node2D = $Meat
 
-enum TutorialState { MOVE, ATTACK, SUFFER_DAMAGE, FINISH }
+enum TutorialState { MOVE, ATTACK, SUFFER_DAMAGE, BOW, FINISH }
 var tutorial_state: TutorialState
 
 const IMPACT = preload("uid://d3q7ssn66sjch")
@@ -114,7 +114,17 @@ func update_tutorial_state() -> void:
 					dummy.state = dummy.State.CHARGE
 			if player.current_hp == 2:
 				dummy.state = dummy.State.IDLE
+				tutorial_state = TutorialState.BOW
+			
+		TutorialState.BOW:
+			if player.grid_pos != Vector2i(13, 8):
+				player.is_immobile = false
+				player.move_to(Vector2i(13, 8))
+				player.is_immobile = true
+			if dummy and dummy.current_hp == 1:
 				tutorial_state = TutorialState.FINISH
+			text1.text = "Além disso, você também possui um Arco para atacar a distância. E para usá-lo aperte a Barra de Espaço uma vez, e então tente se mover na direção que quiser atirar!"
+			text2.text = "Você pode atirar uma vez a cada cinco batidas. Mas lembre-se sempre de agir no ritmo da batida, caso contrário, não conseguirá atirar! Me cause acerte uma vez para prosseguir."
 			
 		TutorialState.FINISH:
 			player.is_immobile = false

@@ -54,10 +54,6 @@ func _on_beat_hit(_beat, _measure) -> void:
 
 # Executes turn on beat hit based on the GM logic order
 func execute_turn(beat: Conductor.BeatInfo, measure: int) -> void:
-	if is_immobile:
-		buffered_action = &""
-		return
-	
 
 	if buffered_action == &"space":
 		if is_charging_bow or is_bow_ready:
@@ -88,6 +84,10 @@ func execute_turn(beat: Conductor.BeatInfo, measure: int) -> void:
 			fail_bow_charge() 
 			buffered_action = &""
 			return 
+		
+		if is_immobile:
+			buffered_action = &""
+			return
 		
 		var target_grid_pos: Vector2i = self.grid_pos + direction
 		var target_entity: GridEntity = grid.get_first_hittable_entity_at(target_grid_pos)
