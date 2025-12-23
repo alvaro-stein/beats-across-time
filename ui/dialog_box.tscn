@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2vd87iaqfx47"]
+
+[ext_resource type="StyleBox" uid="uid://h2s25o72w7bn" path="res://ui/style_box.tres" id="1_m0eb4"]
+[ext_resource type="StyleBox" uid="uid://cuvxn5xyexj82" path="res://ui/style_box2.tres" id="2_t4xvu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Box1" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -290.0
+offset_bottom = 290.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 180
+theme_override_constants/margin_right = 180
+
+[node name="PanelContainer" type="PanelContainer" parent="Box1"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_m0eb4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Box1/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Text1" type="RichTextLabel" parent="Box1/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(250, 290)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Bem vindo ao tutorial de
+Beats Across Time!
+Para começar, tente se mover com as teclas
+WASD ou ▲ ▼ ◄ ►
+e chegar até mim!
+Mas atenção: Você precisa acertar a batida da música para agir!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Box2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -470.0
+offset_top = -510.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 180
+theme_override_constants/margin_bottom = 180
+
+[node name="PanelContainer" type="PanelContainer" parent="Box2"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_t4xvu")
+
+[node name="MarginContainer" type="MarginContainer" parent="Box2/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Text2" type="RichTextLabel" parent="Box2/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(250, 290)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Para atacar, você só precisa se mover na direção de um inimigo ao seu alcance.
+Vamos, tente me golpear ao menos três vezes!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

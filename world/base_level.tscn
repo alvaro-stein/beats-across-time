@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://1bgx3vbeic4o"]
+[gd_scene load_steps=6 format=3 uid="uid://1bgx3vbeic4o"]
 
+[ext_resource type="Script" uid="uid://o1feknarsqbj" path="res://world/base_level.gd" id="1_6nqy2"]
 [ext_resource type="PackedScene" uid="uid://dg7r5hrjyh45f" path="res://world/grid_system.tscn" id="1_yn6g3"]
 [ext_resource type="PackedScene" uid="uid://bi3r8ujd1ruca" path="res://entities/player/player.tscn" id="2_b13jx"]
+[ext_resource type="PackedScene" uid="uid://bo3r3e78431x1" path="res://ui/hud.tscn" id="4_qte3n"]
+[ext_resource type="PackedScene" uid="uid://d8bt8fxwj0ei" path="res://ui/beat_pulse.tscn" id="5_0uy21"]
 
 [node name="BaseLevel" type="Node2D"]
+script = ExtResource("1_6nqy2")
 
 [node name="GridSystem" parent="." instance=ExtResource("1_yn6g3")]
 
 [node name="Player" parent="." instance=ExtResource("2_b13jx")]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("4_qte3n")]
+
+[node name="BeatPulse" parent="." instance=ExtResource("5_0uy21")]

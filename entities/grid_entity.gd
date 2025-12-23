@@ -2,15 +2,22 @@
 class_name GridEntity
 extends Node2D
 
-### Sinal disparado quando o movimento visual (Tween) termina
-#signal movement_finished
+signal died(entity: GridEntity)
+signal health_changed(amount: int, entity: GridEntity)
 
-## A posição lógica na matriz. 
-var grid_pos: Vector2i
-var grid: GridSystem
+enum Faction { PLAYER, TRAP, ENEMY, BOSS, NEUTRAL }
+
+@export_group("Stats")
+@export var faction: Faction = Faction.NEUTRAL
+@export var max_hp: int = 1
+@export var base_damage: int = 1
 @export var is_hittable: bool = false
 @export var occupies_tile: bool = false
 @export var is_immobile: bool = false
+
+var current_hp: int
+var grid_pos: Vector2i
+var grid: GridSystem
 
 ### Referência opcional para animar algo específico (ex: o Sprite dentro do Player)
 ### Se não for atribuído, moveremos o próprio root do objeto.
@@ -18,21 +25,23 @@ var grid: GridSystem
 
 
 func _ready() -> void:
+	current_hp = max_hp
 	grid = GameManager.active_grid
 	assert(grid != null, "Error: GameManager.active_grid == null")
-	# Ao nascer, a entidade tenta descobrir onde ela está no grid baseado na posição do editor
+	
 	grid_pos = grid.local_to_map(self.global_position)
-	# Corrige imprecisão centralizando no tile
 	self.global_position = grid.map_to_local(grid_pos)
-	# Registra sua posição atual no grid system
 	grid.register_entity(self, grid_pos)
 
 
-## Moves the entity logically and visually
-## Does not check for entities occupying the target position
+@abstract
+func execute_turn(beat: Conductor.BeatInfo, measure: int) -> void
+
+
+## Moves the entity logically and visually.
+## Does not check for entities occupying the target position.
 func move_to(target_grid_pos: Vector2i) -> void:
-	if is_immobile:
-		return
+	if is_immobile: return
 	# 1. Atualiza o registro no GridSystem (libera o tile antigo, ocupa o novo)
 	if not grid.move_entity(self, grid_pos, target_grid_pos):
 		return # Não foi possível mover a entidade
@@ -46,9 +55,27 @@ func move_to(target_grid_pos: Vector2i) -> void:
 	# 4. Inicia o movimento visual (Tween)
 	var tween = create_tween()
 	# Usar ease_out deixa o movimento mais "snappy" (rápido no começo, suave no fim)
-	tween.tween_property(self, "global_position", target_world_pos, 0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "global_position", target_world_pos, 0.20).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	#tween.tween_callback(func(): movement_finished.emit())
 
-### Interface de Dano (Polimorfismo)
-#@abstract
-#func take_damage(_amount: int) -> void
+
+func take_damage(amount: int, source: GridEntity = null) -> void:
+	if not is_hittable:
+		return
+			
+	current_hp -= abs(amount)
+	print("%s took %d damage! HP: %d/%d" % [name, amount, current_hp, max_hp])
+	
+	if current_hp <= 0:
+		_die()
+		# TODO: Animação de morte (shader pra desintegrar e tals)
+	else:
+		health_changed.emit(current_hp, self)
+		# TODO: Adicionar feedback visual aqui (flash branco, shake, etc)
+
+# TODO: remove queue_free from here, maybe make this an abstract and let the entity itself chose how to die (player would be very specific, while the enemies would die about the same way)
+func _die() -> void:
+	died.emit(self)
+	grid.unregister_entity(self, grid_pos)
+	# await animation end
+	queue_free()
