@@ -174,8 +174,8 @@ e chegar até mim!
 Mas atenção: Você precisa acertar a batida da música para agir!"
 
 [node name="Meat" parent="." index="6" instance=ExtResource("11_opp3g")]
-position = Vector2(866.00006, 544)
-grid_pos = Vector2i(13, 8)
+position = Vector2(866, 220)
+grid_pos = Vector2i(13, 3)
 
 [editable path="HUD"]
 [editable path="HUD/DialogBox"]
