@@ -11,6 +11,7 @@ func _on_reiniciar_button_pressed() -> void:
 
 
 func _on_voltar_button_pressed() -> void:
+	Conductor.request_change_music = true
 	SM.change_scene_to(SM.MainScene.MENU)
 
 func _on_player_died(player) -> void:

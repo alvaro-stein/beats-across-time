@@ -13,4 +13,5 @@ func _on_beat_hit(_beat, _measure) -> void:
 	
 	if player.grid_pos == Vector2i(4, 2) and\
 	   get_tree().get_nodes_in_group(&"enemy").is_empty():
+		Conductor.request_change_music = false
 		SceneManager.change_scene_to(SceneManager.MainScene.CAVE)

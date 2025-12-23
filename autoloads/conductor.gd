@@ -8,6 +8,8 @@ class BeatInfo:
 	var pos: int = 0 ## The position of the beat ex: 0, 1, 2, 3...
 	var time: float = 0.0 ## In seconds
 
+var request_change_music: bool = true
+
 var turn_delay_sec: float = Settings.hit_window_late_sec
 
 var current_song: SongData = null

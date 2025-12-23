@@ -121,7 +121,7 @@ func update_tutorial_state() -> void:
 				player.is_immobile = false
 				player.move_to(Vector2i(13, 8))
 				player.is_immobile = true
-			if dummy and dummy.current_hp == 1:
+			if (not dummy) or (dummy and dummy.current_hp == 1):
 				tutorial_state = TutorialState.FINISH
 			text1.text = "Além disso, você também possui um Arco para atacar a distância. E para usá-lo aperte a Barra de Espaço uma vez, e então tente se mover na direção que quiser atirar!"
 			text2.text = "Você pode atirar uma vez a cada cinco batidas. Mas lembre-se sempre de agir no ritmo da batida, caso contrário, não conseguirá atirar! Me cause acerte uma vez para prosseguir."
@@ -144,4 +144,5 @@ func update_tutorial_state() -> void:
 			   player.grid_pos.x <= 14 and\
 			   player.grid_pos.y == -1:
 				var SM := SceneManager
+				Conductor.request_change_music = false
 				SM.change_scene_to(SM.MainScene.LEVEL1)

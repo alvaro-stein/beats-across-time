@@ -16,8 +16,9 @@ signal win
 func _ready() -> void:
 	assert(music, "Nenhuma música foi adicionada no export do inspetor para este Level")
 	win.connect(_on_win)
-	Conductor.load_song(music)
-	Conductor.start_song()
+	if Conductor.request_change_music:
+		Conductor.load_song(music)
+		Conductor.start_song()
 
 
 # Função pública para ser chamada pelos botões de UI

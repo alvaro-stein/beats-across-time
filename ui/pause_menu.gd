@@ -57,6 +57,7 @@ func _on_reiniciar_button_pressed() -> void:
 func _on_sair_button_pressed() -> void:
 	Conductor.stream_paused = false
 	Conductor.stop()
+	Conductor.request_change_music = true
 	SceneManager.change_scene_to(SceneManager.MainScene.MENU)
 
 func _slider_to_db(value: float) -> float:
