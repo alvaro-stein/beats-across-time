@@ -18,6 +18,8 @@ extends Node
 @onready var jogar_button: Button = $MainPanel/Jogar
 @onready var title_label: Label = $CenterContainer/TitleLabel
 
+const LEVEL_SELECTOR_SCENE = preload("res://main_scenes/level_selector.tscn")
+
 
 func _ready() -> void:
 	panel_container.visible = false
@@ -52,6 +54,16 @@ func _on_jogar_pressed() -> void:
 	await tween1.finished
 	center_container.queue_free()
 	camera_2d.queue_free()
+
+
+func _on_selecionar_nivel_button_pressed() -> void:
+	var level_selector = LEVEL_SELECTOR_SCENE.instantiate()
+	add_child(level_selector)
+	level_selector.level_selected.connect(_on_level_selected)
+
+
+func _on_level_selected(level: SceneManager.MainScene) -> void:
+	SceneManager.change_scene_to(level)
 
 
 func _on_level_1_button_pressed() -> void:

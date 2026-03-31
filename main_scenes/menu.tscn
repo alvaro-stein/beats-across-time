@@ -32,6 +32,12 @@ theme_override_fonts/font = ExtResource("2_1xsbm")
 theme_override_font_sizes/font_size = 72
 text = "Jogar"
 
+[node name="SelecionarNivelButton" type="Button" parent="MainPanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1xsbm")
+theme_override_font_sizes/font_size = 72
+text = "Selecionar Nível"
+
 [node name="OptionsButton" type="Button" parent="MainPanel"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_1xsbm")
@@ -203,6 +209,7 @@ theme_override_font_sizes/font_size = 100
 text = "Voltar"
 
 [connection signal="pressed" from="MainPanel/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="MainPanel/SelecionarNivelButton" to="." method="_on_selecionar_nivel_button_pressed"]
 [connection signal="pressed" from="MainPanel/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="MainPanel/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="MainPanel/Level1Button" to="." method="_on_level_1_button_pressed"]
